@@ -1,0 +1,137 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+ {% block title %}
+     {{course.name}} Courses | Learnincreation Geeks
+ {% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " {{course.meta}}">
+  <meta name="keywords" content="{{course.name}} , Learnincreation E-book, Learnincreation Library , e books library , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link"   href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3 mt-5"> What inside course -  <span style="color:orange; font-weight: bold;"> An Overview </span> </h1>
+          <div class="col-md-8 p-3">
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+               <h3 class="card-text text-dark ">{{ course.name }} </h3>    
+                <small class="text-muted"> Posted on {{course.published_on}}</small>
+                
+                <hr>
+                {% if user.is_superuser %}
+                          <a href="{% url 'course-update' course.slug %}">
+                          <button	class='btn btn-primary p-1 m-1'>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg> </button>
+              </a>
+                          <a href="{% url 'course-delete' course.slug %}"l	style='text-decoration:none;'>	<button	class='btn btn-danger p-1	m-1'>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                          </svg></button>
+              </a>
+                <hr>
+                {% endif %}
+                <div>
+
+                 <img src="{{ course.snap.url }}" width="250" height="250" class="p-2 m-1" />
+                 </div>
+                <br>
+
+                <h7>{{ course.tags }}</h7><br>
+                <h7> <small class="text-muted">Level - {{course.standard}} standard</small></h7> <hr>
+        <p class="card-text text-dark ">
+         {{course.detail}} 
+        <hr>
+         {% if course.videofile %}
+         <video width="280" height="250" autoplay muted>
+          <source src="{{ course.videofile.url }}" type="video/mp4">
+          <source src="{{ course.videofile.url }}" type="video/ogg">
+        Your browser does not support the video tag.
+        </video>
+       {% endif %} 
+        <hr>
+		 Continue with  <a href="{% url 'category' course.id %}"><button class="btn btn-primary active ">Course lesson</button></a>
+         {% if user == request.user  %}
+         <hr>
+            <span style="font-size: 12px;"> Want to Enroll this free course ?
+            <a href="{% url 'course-bookmark' course.id %}">
+            Yes, Enroll Course </span> </a>
+            
+         {% endif %}
+			
+      
+        
+         </p>
+  
+              </div>
+
+            </div>
+            <hr>
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Explore More on </h2> <br>
+                <!--<p class="card-text text-white"> </p> <hr>-->
+                <p class="card-text text-white"> <a href="{% url 'course-bookmark-list' %}" class="text-white" style='text-decoration:none;'> Enrolled Courses </a> </p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-question' %}" class="text-white" style='text-decoration:none;'> Question/Answer</a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-video' %}" class="text-white" style='text-decoration:none;'> Video Lesson </a></p> <hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-ebook' %}" class="text-white" style='text-decoration:none;'> E-Books Library </a></p> <hr>
+                
+               
+              
+              </div>
+            </div>
+           </div>
+
+        </div>
+    </div>
+
+
+{% endblock content %}

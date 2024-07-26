@@ -1,0 +1,221 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+
+
+ {% block title %}
+    Policy and Privacy | Learnincreation
+ {% endblock title %}
+
+
+
+<!-- meta tags for seo -- >
+{% block meta %}
+
+    <meta name="description" content= "We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our privacy policy and be safe with your data and privacy settings. ">
+  <meta name="keywords" content="Learnincreation , Privacy and Policy , policies , commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+         
+       <span class="navbar-text">
+Policy & Privacy    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+      <h7> We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our  <a href="{% url 'community' %}"> community guidelines here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/policies.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>    
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+                    <div class="row">
+                        <div class="col-12 m-2 p-2">
+                            <h2 class="section-title m-2 p-2 "> Policy & Privacy</h2>
+                            <hr>
+
+                            <h3 class="m-2 p-2">Website Disclaimer</h3>
+                            <p class="m-2 p-2">
+                              The information contained in this website is for educational information purposes only. The information is provided by LearnInCreation and while we endeavour to keep the information up to date and correct, we make representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. This is all our content which is manufacture in our growth factory and you can’t simply use our content for commercial purpose without our permission. Or if you copy or use our content for commercial purpose then it’s a violation of our copyright and we can take a legal action against you. <br><br>
+                              In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website. Through this website you are able to link to other websites which are not under the control of LearnInCreation. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them. Every effort is made to keep the website up and running smoothly. However, LearnInCreation takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.
+                                                          </p>
+
+                                  <hr>
+
+
+                            <h3 class="m-2 p-2">Privacy Policy and data we gather - </h3>
+                            <p class="m-2 p-2">
+                                This privacy policy sets out how LearnInCreation uses and protects any information that you give LearnInCreation when you use this website. <br>
+                                LearnInCreation is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
+                                LearnInCreation may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes. This policy is effective from 17 April 2018. What we collect </p>
+                                <p class="m-2 p-2"> We may collect the following information:
+                                <ul>
+                                <li> name and job title </li>
+                                <li> contact information including email address </li>
+                                <li> demographic information such as postcode, preferences and interests </li>
+                                <li> other information relevant to customer surveys and/or offers </li>
+                                </ul>
+                                </p>
+                                <br><br>
+                                <h3 class="m-2 p-2">What we do with the information we gather </h3>
+                                <p class="m-2 p-2">We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:
+                                <br>
+                                <ul>
+                                <li> Internal record keeping.</li>
+                                <li> We may use the information to improve our products and services.</li>
+                                <li> We may periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided.</li>
+                                <li> From time to time, we may also use your information to contact you for market research purposes. We may contact you by email, phone, fax or mail. We may use the information to customise the website according to your interests. </li>
+                                </ul>
+                                </p>
+
+                                <hr>
+
+
+                              <h3 class="m-2 p-2">Security</h3>
+                              <p class="m-2 p-2">
+                              We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>
+
+                              <hr>
+
+                            <h3 class="m-2 p-2">How we use cookies </h3>
+                            <p class="m-2 p-2">
+                              A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences. </p>
+                              <p class="m-2 p-2">We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page traffic and improve our website in order to tailor it to customer needs. We only use this information for statistical analysis purposes and then the data is removed from the system.
+                              Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find useful and which you do not. A cookie in no way gives us access to your computer or any information about you, other than the data you choose to share with us. <br>
+                              You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website. </p>
+
+
+                <hr>
+
+                <h3 class="m-2 p-2">Links to other websites </h3>
+                <p class="m-2 p-2">
+                    Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide while visiting such sites and such sites are not governed by this privacy statement. You should exercise caution and look at the privacy statement applicable to the website in question. </p>
+                    <br>
+
+                    <hr> 
+                   <h3 class="m-2 p-2"> Controlling your personal information </h3><br>
+                    <hr>
+                    <p class="m-2 p-2">You may choose to restrict the collection or use of your personal information in the following ways:
+                <ul>
+                <li> Whenever you are asked to fill in a form on the website, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes. </li>
+                <li> If you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by writing to or emailing us at support@learnincreation.com </li>
+                <li> We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so. We may use your personal information to send you promotional information about our products and services which we think you may find interesting if you tell us that you wish this to happen. </li>
+                </ul>
+                </p>
+                <br>
+                <hr>
+                <p>You may request details of personal information which we hold about you under the Data Protection Act 1998. A small fee will be payable. If you would like a copy of the information held on you please write to contact@learnincreation.com.
+                If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect. </p>
+
+                <hr>
+
+                <h3 class="m-2 p-2"> Copyrights Notice </h3>
+                    <p class="m-2 p-2">This website and its content is copyright of <b>LearnInCreation - © LearnInCreation 2018-2022. All rights reserved.</b> </p>
+                      <br>
+                      <p class="m-2 p-2"> Any redistribution or reproduction of part or all of the contents in any form is prohibited other than the following:
+                      <ul>
+                      <li> You may print or download to a local hard disk extracts for your personal and non-commercial use only. </li>
+                      <li> You may copy the content to individual third parties for their personal use, but only if you acknowledge the website as the source of the material. </li>
+                      </ul>
+                      <br>
+                      You may not, except with our express written permission, distribute or commercially exploit the content. Nor may you transmit it or store it in any other website or other form of electronic retrieval system.</p>
+
+                      <hr>
+
+                    <h3 class="m-2 p-2">Terms of uses </h3>
+                    <p class="m-2 p-2">Welcome to our website.If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern LearnInCreation’s relationship with you in relation to this website.
+                        <br>
+                        <hr>
+                        If you disagree with any part of these terms and conditions, please do not use our website.
+
+                        <br>
+                        <hr>
+                        The term ‘LearnInCreation’ or ‘us’ or ‘we’ refers to the owner of the website whose registered office is in Samiah Lake City, Rudrapur City, Dist. Udham Singh Nagar, State Uttrakhand. The term ‘you’ refers to the user or viewer of our website. <br> </p>
+                        <hr>
+
+                        <p class="m-2 p-2"> The use of this website is subject to the following terms of use:
+                          <ol>
+                          <li>The content of the pages of this website is for your educational information and use only. It is subject to change without notice. </li>
+                          <li> Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements. </li>
+                          <li> This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions. </li>
+                          <li> All trademarks reproduced in this website, which are not the property of, or licensed to the operator, are acknowledged on the website. </li>
+                          <li> Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</li>
+                          <li> From time to time, this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s). </li>
+                          <li> Your use of this website and any dispute arising out of such use of the website is subject to the laws of India. </li>
+                          </ol>
+                          </p>
+
+                          <hr>
+
+                          <h3 class="m-2 p-2">Email Disclaimer</h3>
+                          <p class="m-2 p-2">
+                              This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of LearnInCreation. <br>
+                          If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone.<br>
+                          <i>Please contact the sender if you believe you have received this email in error. </i>
+                          </p>
+
+                          <hr>
+                       
+            </div>
+           </div>
+
+ </div> <!-- main body container end --> 
+
+</div>
+{% endblock content %}

@@ -1,0 +1,107 @@
+{% extends "landing/main.html" %}
+{% load static %}
+
+{% block meta %}
+<meta name="google-adsense-account" content="ca-pub-9133208017441567">
+{% endblock meta %}
+
+
+
+{% block content %}
+  <main id="main">
+<section id="breadcrumbs" class="breadcrumbs">
+      <div class="container mt-2">
+        <div class="row ">
+        <div class="col-md-6 sm-4 d-flex justify-content-between align-items-center">
+     
+          <ol>
+            <li><a href="{% url 'home-info'%}">Home</a></li>
+            <li>Video </li>
+          </ol>
+        </div>
+        <div class="col-md-6 sm-8 d-flex justify-content-between align-items-center">
+		      <form class="form" action="/video/" method="get" style="float: right;">
+		        <input class="flex-grow bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4 mb-1 sm:mb-0 mt-0" type="search" name = 'queryvideo' placeholder="Search Video Subject" aria-label="search">
+		        <!--<button  type = 'submit'><img src="/static/images/searchicon.png" style="width:20px; height:20px; margin-left:5px;" ></img> </button>-->
+		        <button class="text-white btn btn-primary" type = 'submit'>Search </button>
+		       </form>
+		</div>
+
+		 <h2>Video's List</h2>
+		
+		</div>
+	</div>
+ </section><!-- End Breadcrumbs -->
+
+
+	<div class="container  mb-5">
+
+<a href="{% url 'video-create' %}" class="btn btn-primary shadow text-white p-2">Share Your Video</a>
+			 <hr>
+
+
+		<div class="row">
+			 
+
+			{% for post in video_list %}			
+  				<div class="col-md-4 ">		
+					<div class="card m-2 shadow p-3 mb-5 bg-white rounded"  >
+
+			<video width="300" height="200" controls>
+				  <source src="/media/{{post.video}}" type="video/mp4">
+	
+				</video>
+		
+						<div class="card-body">
+							<span class="badge badge-primary" style="text-transform: uppercase;">{{post.author}}</span>
+							<h5 class="card-title" style="text-transform: capitalize;">{{post.subject}}</h5>
+							<h4>{{post.course}} | {{post.semester}} | {{post.subjects}}</p></h4>
+							<p class="card-text" style="text-transform: capitalize;">{{post.about}}</p>
+							<!--<p class="card-text" style="text-transform: capitalize;">{{post.highlight}}</p>-->
+							<p class="lead mb-0"><a href="{{post.pk}}" class="text-blue font-weight-light">Read More </a></p>
+							<p class="card-text"><small class="text-muted">Published {{post.published}}</small></p>
+						</div>
+				
+				{% if request.user.is_superuser or request.user.is_staff %}
+	            	<a href='/notes/video/{{post.id}}/delete'><button class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg></button></a>
+	            {% endif %}
+				
+					</div>
+				</div>
+			{% endfor %}		
+		</div>
+	</div>
+
+
+	<section class="text-dark-700 body-font " style="margin-top: 150px;">
+		  <div class="container px-5 py-24 mx-auto">
+		      <!-- pagination -->
+		      <div class="pagination" >
+		          <span class="step-links">
+		              {% if page_obj.has_previous %}
+		                  <a href="?page=1"><button class="btn btn-primary text-white" type="button" name="button"> First</button></a>
+		                  <a href="?page={{ page_obj.previous_page_number }}"><button class="btn btn-primary text-white" type="button" name="button">Previous</button></a>
+		              {% endif %}
+
+		              <span class="current">
+		                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+		              </span>
+
+		              {% if page_obj.has_next %}
+		                  <a href="?page={{ page_obj.next_page_number }}"><button class="btn btn-primary text-white" type="button" name="button">Next</button></a>
+		                  <a href="?page={{ page_obj.paginator.num_pages }}"><button class="btn btn-primary text-white " type="button" name="button">Last </button></a>
+		              {% endif %}
+		          </span>
+		      </div>
+		      <!-- pagination end -->
+</div>
+</section>
+</main>
+
+	
+{% endblock content %}
+
+

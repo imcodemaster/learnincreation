@@ -1,0 +1,157 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+
+ 
+ {% block title %}
+    Course Lesson | Learnincreation Geeks
+   
+ {% endblock title %}
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+ {% for lesson in category_lesson %}
+  <meta name="description" content= "All Chapter from different courses. Login to Learn with Learnincreation Geeks">
+  <meta name="keywords" content="  {{lesson.course.description}} , computer, question, answer, computer question series, ">
+  <meta name="author" content="Learnincreation">
+ {% endfor %}   
+
+{% endblock meta %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link"   href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+           
+           {% if user.is_superuser %}
+            <a class="nav-link" href="{% url 'course-create' %}"> <button class="btn btn-primary p-1" style="font-size: 12px;" > Create Course </button></a>
+            <a class="nav-link" href="{% url 'coursearticle-create' %}"> <button class="btn btn-primary p-1" style="font-size: 12px;" > Create Lesson </button> </a>
+             <a class="nav-link" href="{% url 'geeks-coursearticle' %}"> <button class="btn btn-primary p-1" style="font-size: 12px;" > Course Lesson </button></a>
+           {% endif %}
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div class="mt-5 ">
+                  <img  src="{% static 'landing/images/course-page.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3"> Course <span style="color:orange; font-weight: bold;"> lesson </span> </h1>
+          <hr>
+
+            <div class="col-md-3 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-dark">
+           
+              <p class="text-left text-white">
+              
+             <h2 class="text-white"> Your Collection</h2> <br>
+                <!--<p class="card-text text-white"> </p> <hr>-->
+                <p class="card-text text-white"> <a href="{% url 'lesson-bookmark-list' %}" class="text-white" style='text-decoration:none;'> Saved Notes </a> </p><hr>
+                <p class="card-text text-white"><a href="{% url 'save-list' %}" class="text-white" style='text-decoration:none;'> Quick Revison</a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'video-bookmark-list' %}" class="text-white" style='text-decoration:none;'> Saved Lesson </a></p> <hr>
+          
+             </p>
+            </div>
+           </div>
+          {% if category_lesson %}
+          <div class="col-md-6 p-3">
+            {% for lesson in category_lesson %}
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+              <span class="text-dark"><small>{{lesson.course}} course</small> </span><hr>
+                <h5 class="card-text text-dark "><a href="{% url 'coursearticle-detail' lesson.pk %}" style='text-decoration:none; color:black;'>
+                {{ lesson.title }} </a> </h5>
+                 
+                  <br>
+             <!--   <small class="text-muted"> Posted on {{lesson.published_on}}</small>
+                <hr>
+                 <img src="{{ lesson.snap.url }}" class="m-1 p-1" width="250" height="250" />
+                <hr>
+                <h7>Related to - {{ lesson.tags }}</h7> <br> -->
+                <h7> <small class="text-muted">Level - {{lesson.standard}} standard</small></h7>
+                <hr>
+        <p class="card-text text-dark ">
+       <!--  {{lesson.keynote}} <br> <br> -->
+         <a href="{% url 'coursearticle-detail' lesson.pk %}"><button class="btn btn-primary active "> Read Full Lesson</button></a>
+         <hr>
+          </p>
+
+              </div>
+            </div>
+            <hr>
+            {% endfor %}
+
+           </div>
+
+            {% else %}
+           
+             <div class="col-md-6 p-3">
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+              <h5>You might be on wrong page !</h5>
+                <small class="text-muted">Sorry, This page is not exist.</small>
+ 
+              </div>
+            </div>
+          
+
+           </div>
+
+            {% endif %}
+
+           <div class="col-md-3 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Explore More on </h2> <br>
+                <!--<p class="card-text text-white"> </p> <hr>-->
+                <p class="card-text text-white"> <a href="{% url 'geeks-courses' %}" class="text-white" style='text-decoration:none;'> All Courses </a> </p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-question' %}" class="text-white" style='text-decoration:none;'> Question/Answer</a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-video' %}" class="text-white" style='text-decoration:none;'> Video Lesson </a></p> <hr>
+              	<p class="card-text text-white"><a href="https://www.amazon.com/Vinay--Bhatt/e/B0BFQSY172" target='__blank' class="text-white" style='text-decoration:none;'> Amazon Kindle </a></p> <hr>
+				
+              
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

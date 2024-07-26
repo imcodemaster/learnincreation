@@ -1,0 +1,69 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+ {% block title %}
+  "Question Series EBook-{{request.user.pk}}-ELG" Pdf of Question and Answer | Learnincreation Geeks
+ {% endblock title %}
+
+
+
+{% block content %}
+
+   <div class="container mt-5 pt-4" style="margin:auto; padding:auto;">
+           
+               <div class="mt-5 ">
+                  <h1 style="font-size: 20px;">Welcome to Learnincreation Geeks </h1>
+                  <div class="row mt-5 pt-5" style="font-size: 14px">
+                 Question-Answer booklet pdf, requested by - <b>"{{request.user.first_name}} {{request.user.last_name}} "</b> on <b>{{today}}</b> generated successfully with booklet-no- <i style="text-transform: uppercase;">"Question Series EBook-{{request.user.pk}}-ELG"</i> for education or learning purpose only, do not try to sale, duplicate or immitate the content of this pdf booklet.
+                <strong> Copyright : © 2022 LearnInCreation , All Right Reserved.  </strong>   
+               </div>      
+               </div>
+        
+    </div>
+
+
+<div class="container mt-5">
+        <div class="row ">
+          <div class="col-sm-12 md-6 lg-6">
+          <h1 class="p-3"> Questions/ Answer series <span style="color:orange; font-weight: bold;"> - for 6<sup>th</sup> to 12<sup>th</sup> standard Geeks </span> </h1>
+            <h5 class="card-text text-white" style="font-size: 12px;"> <b>Dear <b>"{{request.user.username}}", </b> there is a series of question /answers related to computer science standard from 6 to 12 th. We Hope, this  pdf guide helps you to learn better in a quick time.</h5>
+          <hr>
+          
+          <div class="col-md-8 p-3">
+            {% for question in quicklearn %}
+            <div class="card card-signin my-5 shadow p-4">
+             <h6 class="m-2 p-2 "><b> Next Question  </b></h6>
+              <div class="card-body" style="max-width: 600px; text-transform: capitalize; font-size: 12px;">
+                <p style="text-transform: capitalize;"> <strong> Topic -  <strong> "{{ question.topic }}" .  <strong> Branch - <strong> "{{question.tags}}" . <strong>Published on </strong>  - {{question.published_on}}  </p>
+                -------------------------------------------------------------------------------------------
+              <h2 style="text-transform: capitalize;"><strong>  Question - </strong> "{{ question.question }}" </h2> 
+              <p class="mr-2 pr-2 "  style=" text-transform: capitalize;"> <strong > Answer - </strong> <span>"{{question.answer}}"</span> 
+              </p>
+              <h5 style="text-transform: capitalize;"><strong> Keep in Mind - </strong> <span> "{{question.keynote}}" </span> </h5>
+            
+              </div>
+              
+            </div>
+            <hr>
+            {% endfor %}
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+             <div class="card-body  text-white">
+                <h2> Explore More on Learnincreation - </h2>
+                <!--<p class="card-text text-white"> </p> <hr>-->
+                <p class="card-text text-white"> Learn more with Learnincreation Geeks, explore our website, check out our offerd courses and videos lesson to learn computer science. #PadegaIndiaTabhiToBadegaIndia  </p>
+                 <hr>
+
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+

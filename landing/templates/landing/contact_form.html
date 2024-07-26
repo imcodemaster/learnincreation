@@ -1,0 +1,173 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+ {% load crispy_forms_tags %}
+
+{% block title %}
+   Contact with Learnincreation
+{% endblock title%}
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " As we living in era of fast communication, you can reach us simply by mail us on our mail address, Or you can join our community on Facebook , Instagram and can follow us on Twitter !
+We love to hear You and Your Feedback ! ">
+  <meta name="keywords" content="Learnincreation geeks , contact us, basic computer course, computer learning website, online learning , share your knowledge , education campaign">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  " href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link active"  aria-current="page" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"><button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+  
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:10px; padding:auto;">
+                  <h2>Write Straight<span style="color: orange;"> - To Learnincreation.</span></h2>      
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   
+   <!-- image-div-->
+   
+   <div class="container mb-5" style="margin-top:; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/businessplace.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+   <!-- Header section end -->
+   
+   <!--contact form section  -->
+   
+   
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row shadow" style="margin-bottom:100px; margin-top-30px;" >   
+               <div class= " col-sm-10 md-10 lg-10 " style=" margin:auto; padding:50px;">
+                      <form method="post" >
+                          <fieldset>
+                            <legend> Enter Details, <span style="color: orange;">  so We 
+
+
+
+
+
+
+
+
+
+
+
+
+                            can connect !! </span>  </legend>
+                              {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-primary mt-5" type="submit"> Submit To Department  </button>
+                            </fieldset>
+                          <br>
+                        </form> 
+                   
+                  </div>
+        </div>
+    </div>                 
+              
+   <!-- Contact Form section  end -->  
+   
+   
+    <div class="container">
+    
+      <!--  <div class="row" >   
+               <div style=" margin-top:-80px;">
+                  <img  src="{% static 'landing/img-old/11.png' %}" style="width:inherit; height:auto;" alt="learnincreation-contact-banner-image">      
+               </div>
+        </div> -->
+        
+        <div class="row" style="margin-top:80px;">
+          
+            <div class="col-sm-6 md-6 lg-6">
+                <div style="text-align:center; padding:10px; margin:15px;">
+                     <h2 style="color:black; margin:30px;;">  How to reach us : </h2>
+                     <p> As we living in era of fast communication, you can reach us simply by mail us on our mail address, whatsapp or you can join our community or can follow us on <a href="https://twitter.com/learnincreation">Twitter </a>
+                     <hr> 
+                <b style="text-transform: uppercase;" > We love to hear Your Feedback ! </b> 
+              
+                </div>
+            </div>
+            
+            <div class="col-sm-6 md-6 lg-6">    
+                <div style="text-align:center; padding:10px;; margin:15px;;">
+                     <h2 style="color:orange; margin:30px;"> Thanks for being here :) </h2>
+                    <!-- <p style="font-size:18px;"> <i> <a href="mailto:contact@learnincreation.co.in"> contact@learnincreation.co.in </a>, <hr> <a href="mailto:support@learnincreation.co.in"> support@learnincreation.co.in </a>,
+                     <span style="color:black;"> <hr><b> or at </b>
+                     </span>  <a href="mailto:info@learnincreation.co.in"> info@learnincreation.co.in </a> </i>  </p> -->
+                </div>
+            </div>
+       
+        </div>        
+    </div>
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+{% endblock content %}

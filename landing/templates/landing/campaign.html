@@ -1,0 +1,177 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+{% block title %}
+  Share Your Knowledge | Campaign From Learnincreation
+{% endblock title %}
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content="Share Your Knowledge is a campaign running by Learnincreation Geeks, to encourage and appreciate students, learner and individual to share your knowledge with other via publishing Article. You can write your article on the topic you have skills and knowledge send to us, if its get selected, its publish on our portal with your name and pictures. You have something to share ? Write to us ">
+  <meta name="keywords" content="Learnincreation geeks , computer courses, basic computer course, edtech, education website, in india , learnincreation, geeks, question, education, Notes, Article, Publsih,  computer learning website, online learning , share your knowledge , education campaign">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  " href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> <button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/the-campaign.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                 <h1> Share Your <span style="color:orange;"> <b> Knowledge Campaign! </b> </span> </h1>
+                  <p style="font-size:28px; padding:20px; margin-bottom:100px;"> " Share Your Knowledge is a campaign running by LearnInCreation Geeks in order to 
+                  build an Online Learning and Sharing Community to learn from other and sharing your knowledge with other students and helping them. </p>
+                    
+               </div>
+        </div>
+             
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/campaign-header.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 style="padding:20px; margin-bottom:100px;"> Publish Your Article  <span style="color:orange;"> in Global Community  </span> </h1>
+                  <p style="font-size:25px; padding:20px; margin-bottom:100px;">  Now Share your Own written article related to computer science with other students globally, and spread learning with LearInCreation Geeks and encourage other to share your knowledge.
+
+ <span style="color:orange;"> <b>Learning New things is Good for You, but Sharing your learning is Good for Others.</b></span>  </p>      
+               </div>
+              <hr>
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+ 
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/campaign-banner.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>  
+  
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 style="padding:20px; margin-bottom:100px;"> Why We running <span style="color:orange;"> this campaign ? </span> </h1>
+                  <p style="font-size:25px; padding:20px; margin-bottom:100px;"> The ideation behind this initiative is that <b> "No one knows Everything's But Everyone knows Something's" </b> so we think about an enviourment where student/ self learner can share his own written article , learning with other student globally.
+                     <span style="color:orange;"> <b>
+<span style="color:orange;"> "Its Good to Learn but Sharing Your Learning is Better", </span> so we decided to encourage student to share their article globally via LearnInCreation Geeks and appreciate those who already spearding awareness and learning !! </b></span>  </p>      
+               </div>
+              <hr>
+              <div class="container">
+                <div class="row"> 
+                  <p style="font-size: 22px;" class="p-3 m-1">
+                Want to submit your article ? <a href="{% url 'contact' %}" style = 'text-decoration:none;'> Write to us</a> or <a href="{% url 'post-list' %}" style = 'text-decoration:none;'>Share Directly </a> on portal with other geeks  </p> 
+                <hr>
+                 <p class="p-3 m-1" style="font-size: 22px;"> If your article was informative and well written we publish your written article with your (student) name and snap, this will  encourage your friends too, and every <strong> "Engineer can sharp their Edge with Right Engagement." </strong>  </p>
+                <hr>
+                <p class="p-3 m-1" style="font-size: 18px;">
+                
+                Best Regards,<br>
+                Founder
+              </p>
+                </div>
+              </div>
+        </div>
+    </div>
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/campaign-footer.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>  
+  
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,192 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+<!-- title for page -->  
+{% block title %}
+  Learnincreation | Empowering You Digitally 
+{% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content="Learnincreation is a young and growing Internet Company located in India, 
+                                      serve with a mission of 'Empowering You Digitally' in a sector of Education Technology, Website Development and Social Networking Services. Sign Up Today !">
+  <meta name="keywords" content="Learnincreation , computer courses, self Learning , basic computer course, computer learning website, online learning ">
+  <meta name="author" content="Learnincreation">
+{% endblock meta %}
+
+<!-- upper nav bar -->
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"> 
+        <a class="nav-link mt-3 " href="{% url 'home' %}">Home</a>
+        <a class="nav-link mt-3 " href="https://www.amazon.com/stores/Vinay-Bhatt/author/B0BFQSY172?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true ">Founder Page</a>
+         <a class="nav-link mt-3 " href="{% url 'subscribe' %}"> Study Center </a>
+
+         {% if user.is_authenticated %}
+      
+
+           <a class="nav-link mt-3" href="{% url 'geeks-home' %}"><b>Learn</b></a>
+      
+      		<a class="nav-link mt-3" href="{% url 'post-list' %}"><b> Study Room</b></a>
+
+          <a class="nav-link mt-3" href="{% url 'setting' %}">Setting</a>
+
+        {% else %}
+
+        <a class="nav-link text-primary mt-3 " href="{% url 'login' %}">
+        <button class="btn btn-primary active btn-sm p-1" style="font-size: 15px;"> Sign in </button></a>
+        
+        {% endif %}
+        
+       
+
+       <span class="navbar-text  mt-3 p-2">
+       Incubated by FIED, IIM Kashipur 
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+{% block content %}
+
+
+{% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+{% endfor %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+      {% if user.is_authenticated %}
+      <h5> Hello <a href="{% url 'profile' user.profile.pk %}"><span style="text-transform: capitalize;">{{user.username}}</span></a>,  <b> Welcome to Learn<span style='color: orange;'>increation</span></b>  </h5> 
+      
+      {% else %}
+
+       <h7> Register Yourself, and join community of Learnincreation <a href="{% url 'registerpage'%}"> Sign Up.</a> </h7> 
+
+      {% endif %}
+    </div> 
+
+
+  <hr>
+  
+
+  <!-- page-content --> 
+   
+   <div class="container" style="margin:auto; padding:auto;">     
+        <div class="row m-4 p-4" align="justify center" > 
+          <h5> What's you going to learn Today ?</h5>
+        <div class="row" style="margin-bottom:20px;">
+                  <form class="form-inline my-2 my-lg-0" action="{% url 'search-results' %}" method="get">
+                  <input class="form-control m-2 p-2" type="search"  name="q" placeholder="write your question or search lesson...  " aria-label="Search">
+                  <button class="btn btn-primary btn-sm active m-2 p-2 " type="submit"> Search 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  					<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+				</svg>
+                  </button>
+                </form>
+               </div>  
+               
+            
+               <!-- <div class="row">
+                  <form class="form-inline my-2 my-lg-0" action="{% url 'geeks-question' %}" method="get">
+                  <input class="form-control m-2 p-2" type="search"  name="q" placeholder="Search your lesson here" aria-label="Search">
+                  <button class="btn btn-primary btn-sm active m-2 p-2 " type="submit">Search Question</button>
+                </form>
+               </div> 
+                 
+               
+                <div class="container" style = 'margin:auto; padding:auto;' >
+              <span style="align-content: center;" data-toggle="tooltip" data-placement="top" title= " Edtech Portal for Student - To Learn and Share Notes Online ">
+                <a href="{% url 'geeks-home' %}"> <button class="btn btn-primary active shadow m-2 p-2"> Learnincreation Geeks</button></a>
+                </span>
+                
+               <span style="align-content: center;" data-toggle="tooltip" data-placement="top" title= " Digitalize Your Business with Learnincreation Business. "> 
+               <a href="{% url 'business' %}"> <button class="btn btn-primary active shadow m-2 p-2">Learnincreation Business</button></a>
+                </span>
+                 <span style="align-content: center;" data-toggle="tooltip" data-placement="top" title= " Read our books on Amazon Kindle, Available Now. "> 
+               <a href="https://amazon.com/author/vinaybhatt"> <button class="btn btn-warning shadow m-2 p-2">Read on Amazon Kindle</button></a>
+                </span> -->
+
+  <div class="card-deck row mt-3 mb-3" style = 'margin:auto; padding:auto;'  >
+  
+  <div class="  m-3 p-2 " style="width:280px;">
+   <!-- <img class="card-img-top " src="{% static 'landing/images/geeks-home.png' %}" alt="Learnincreation Geeks"	style=" height:200px;"> -->
+    <div class="card-body">
+      <h5 class="card-title">Learnincreation Geeks</h5>
+      <p class="card-text">E-Learning Portal for everyone to Learn, Share & Dive in ocean of Learning. </p>
+      <p class="card-text">
+     <span style="align-content: center;" data-toggle="tooltip" data-placement="top" title= " Edtech Portal for Student - To Learn and Share Notes Online ">
+                <a href="{% url 'geeks-home' %} " target='--blank'> <button class="btn btn-primary active shadow m-2 p-2"> Learnincreation Geeks</button></a>
+                </span>
+    </p>
+    </div>
+  </div>
+  
+  <div class=" m-3 p-2 " style="width:280px;"> 
+<!--    <img class="card-img-top " src="{% static 'landing/images/business-profile-need.png' %}" alt="Learnincreation Business"	style=" height:200px;"> -->
+    <div class="card-body">
+      <h5 class="card-title">Learnincreation Business</h5>
+      <p class="card-text">Technology Driven Business, Now Digitalize your business with Your Business Website.</p>
+      <p class="card-text"> <span style="align-content: center;" data-toggle="tooltip" data-placement="top" title= " Digitalize Your Business with Learnincreation Business. "> 
+               <a href="{% url 'business' %}" target='--blank'> <button class="btn btn-primary active shadow m-2 p-2">Learnincreation Business</button></a>
+                </span>
+    </p>
+    </div>
+  </div>
+  <div class="  m-3 p-2 " style="width:280px;">
+    <div class="card-body">
+      <h5 class="card-title">Our Study Center</h5>
+      <p class="card-text">Enroll for Best Proffesional Computer Course Certification for your better Future.</p>
+      <p class="card-text">
+    		 <span style="align-content: center;" data-toggle="tooltip" data-placement="top" title= " Read our books on Amazon Kindle, Available Now. "> 
+               <a href="{% url 'subscribe' %}" target='--blank'> <button class="btn btn-primary active shadow m-2 p-2">Get Admission</button></a>
+                </span>
+
+    </p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+  <!-- attraction alreat section - end -->
+   <div class="container">
+  <div class="row">
+    <img src="{% static 'landing/img/incubation.png' %}" alt="learnincreation incubated by FIED , IIM kashipur">
+  </div>
+</div>
+
+
+             </div>
+        </div>
+    </div>
+    
+
+
+</div> <!-- main body container end --> 
+
+
+{% endblock content %}

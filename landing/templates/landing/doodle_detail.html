@@ -1,0 +1,156 @@
+{% extends "landing/main.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+      <a class="nav-link text-primary " href="{% url 'login' %}"><button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button> </a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      
+  
+       <span class="navbar-text  mt-1 p-2">
+       #ExploreWithLearnincreation
+    </span>
+    
+     </div> 
+  </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+
+
+{% block content %}
+<div class= 'container-fluid'>
+<div class="container" style='margin-top:60px; padding:auto;'>
+  <div class="row mt-4 pt-5">
+      <div class=" card col-md-6 lg-6 sm-12 m-2 shadow p-3 mb-5 bg-white rounded" >
+				<h5 style="font-weight: normal;" class = 'text-danger'>
+                 {% if doodle.event %}
+                 Related to -  <span style="text-transform: capitalize; font-weight:bold " class = 'text-dark'>{{doodle.event}}</span>
+                 {% endif %}
+      </h5>
+             <hr>
+            {% if doodle.imageURL %}
+            <img class="card-img-top " src="{{doodle.imageURL}}" alt="Card image cap" width="300" height="300" style="border-radius: 25px;">
+            {% endif %}
+
+            <hr>
+
+            <div class="card-body">
+                
+      
+             <small class="text-muted p-1">Published on : {{doodle.date}}</small>
+              <hr>
+              <p class="card-title mt-1" style="text-transform:capitalize;"><strong>{{doodle.tooltip}}</strong></p>
+            
+              <hr>
+
+              
+              <div class="entry-content">
+               
+                           <form action="{% url 'doodle-like'  doodle.pk %}" method="POST">
+                  {% csrf_token %}
+                          {% if got_liked %}
+                          Yes, Informative !!
+                              <button  type="submit" name="doodle_id" , value="{{doodle.id}}" class="btn btn-light text-dark m-1 " >
+                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+ 							 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+							</svg>
+                              </button> 
+                          {% else %}
+                            Does this Informative ?
+                              <button style="font-size: 14px;" type="submit" name="doodle_id" , value="{{doodle.id}}" class="btn btn-light text-dark  m-1 " > 
+                               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+  								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  								<path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+								</svg>
+                               </button>
+                   {% endif %}
+                  <span class= 'btn btn-sm btn-primary active '>{{total_likes}}</span>
+                </form> 
+                <hr>
+                {% if user == doodle.author %}
+              
+                <a href="{% url 'doodle-update' doodle.pk %}">
+                  <span style="color: blue;">
+                  <button class="btn btn-primary p-2"> Edit
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-middle" viewBox="0 0 16 16">
+                    <path d="M6 13a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v10zM1 8a.5.5 0 0 0 .5.5H6v-1H1.5A.5.5 0 0 0 1 8zm14 0a.5.5 0 0 1-.5.5H10v-1h4.5a.5.5 0 0 1 .5.5z"/>
+                  </svg>
+                </button>
+              </span>
+            </a>
+                
+                <a href="{% url 'doodle-delete' doodle.pk %}">
+                  <span class="ml-2" >
+                    <button class="btn btn-danger p-2"> Delete
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                      <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                    </svg>
+                      </button>
+                    </span>
+                  </a>
+              
+              {% endif %}
+                      
+              </div> 
+            </div>
+          </div>
+
+
+<div class=" card col-md-5 lg-5 sm-12 m-2 shadow p-3 mb-5 bg-white rounded" >
+
+  <h5 class = 'text-danger' >More Information - </h5>
+
+<div class="m-2 p-2 ">
+{{ doodle.detail}}
+  
+</div>
+
+<div class="m-2 p-2 ">
+{{ doodle.moredetail}} 
+
+  
+</div>
+
+<hr>
+
+<small class="m-2 p-2 "> Was this explore helpful ?  </small>
+ <button class="btn btn-sm btn-primary active "><a class="nav-link text-white" href="{% url 'contact' %}"> Send Feedback </a></button>
+<hr>
+
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}
+
+

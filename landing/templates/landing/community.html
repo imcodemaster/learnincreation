@@ -1,0 +1,205 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+{% block title %}
+   
+   Community Standards and Guidlines | Learnincreation
+
+{% endblock title %}
+
+
+<!-- meta tags for seo -- >
+{% block meta %}
+    <meta name="description" content="We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our community guidelines here.">
+
+  <meta name="keywords" content="Learnincreation community guidlines, community standards , lernincreation geeks , learnincreation business ">
+  <meta name="author" content="Learnincreation">
+{% endblock meta %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> <button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+      <h7> We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our community guidelines here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/community.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:10px;;" >   
+                        <div class="col-12 m-2 p-2 m-2 p-2 ">
+                            <h2 class="section-title m-2 p-2">We trying to develope a learning enviourment, where one can learn by self and can grow with thier passion and carrer enhancement, respect other in community and helps each other to grow  - </h2>
+                              <hr>
+                            <p>Hello !! Welcome to Learnincreation Community Standard page, we create Learnincreation content policies to provide support to the community. Our team work continously to make Learnincreation (including Learnincreation geeks) an open and safe enviourment for people around the globe. We would like to share a few insights into what its like serving a growing community of learner around the  world.</p>
+                            <hr>
+
+                            <h3 class="m-2 p-2">When we share information and opinion with our friends, family , communities and  the world around us, <span class="btn btn-primary text-white"> that's when we get something extra-ordinary - a notion, collabrations, associations and opportunities. </span> </h3>
+                            <p>
+                                Everyday, people around the globe thinks millions of thoughts in a day, and they share their notion on Learnincreation (including Learnincreation Geeks & Leafnotion) that add value (academic, social, awarness etc.) to our lives, but sometimes people share content that can be harmful or abusive to the rest of community. That's why we create community standard to explain what kind of things you should not share or post on Learnincreation portal's. Our community guidelines aim to find the right balance between giving people a place to express themselves and promoting a welcoming and safe encouraging enviourment for everyone. 
+                            </p>
+<hr>
+                            <h3 class="m-2 p-2">The community guildlines listed below set out the types of action and behaviour that are prohibited on Learnincreation.  </h3>
+                            <p>
+                              If you found to have commited any of the action listed below, appropiate action might be taken agaist you including, but not limited to , taking down the voilative content , in a appropiate circumstance informing the authorities and  suspension or termination of account. 
+                            </p>
+                            <p class="m-2 p-2">
+                                <ol>
+                                    <li>Principle</li>
+                                    
+                                    <li>Keeping you safe</li>
+
+                                    <li> Encouraging Respectful Behaviour</li>
+                                    
+                                    <li>Acknowledging Cultural Diversities</li>
+                                    
+                                    <li>Empowering You</li>
+                                </ol>
+                            </p>
+<hr>
+                          <h3 class="m-2 p-2"> Principle - </h3>
+                                <p class="m-2 p-2">Our mission is to give people the power of sharing and make the world more open and connected towards knowledge. Everyday people come to learnincreation web portals to gain or share knowledge , notes , article , post and connect with firends and  cause the conversation that happen on learnincreation reflect the diversity of a community. As we want people to feel safe , and have freedom of speech , expression as well as right to privacy of user when using Learnincreation.   
+                                <br><br>
+                                For that reason, we have develop set of community standard outlined below. These policies will help you understand what type of sharing is allowed in Learnincreation web portals and what kind of content may be reported to us or removed.
+                                <br>
+                                Because of the diversity of  our global community, please bear in mind that  somethings that may be disagreable or disturbing to you may not voilate our community standard. We remove content, disable accounts and work with law enforcement when we believe that there is a genuine risk of physical harm or direct threat to public safety. <hr>
+                                Learn more about <a href="#">How its works.</a> <hr>
+                                Back to <a href="#">Top </a> </p>
+
+<hr>
+
+                        <h3 class="m-2 p-2">Learnincreation helps its users connect to others</h3>
+                        <p class="m-2 p-2">
+                            Enabling meaningful engagements with Learnincreation community to ensure that this purpose is acheived successfully & effectively, Learnincreation requires users to follow these community guidlines along with the <a href="#">Terms of Uses</a>. Treat your interaction with other users on learnincreation as though these are interaction in real / actual worl. Before you post in a community, keep in mind you are sharing your notion with your friends and if they might feel bad if you told them to their face, so think about your notion again and the nplan to post it on portal. Don't post content about others that you wouldn't like posted about yourself. </p>
+
+<hr>
+                        <h3 class="m-2 p-2">Keeping You Safe - </h3>
+
+                            <p class="m-2 p-2">We trying best and also appeal tou ro dollow the guidlines, as we remove content , disable accounts and works with law enforcements when we beleive that there is risk of physical harm or direct threat to public safety. Learn here, about how learnincreation handle abusive content -   
+                          
+                            <hr>
+                            <ol>
+                              <li>Voilative & Abusive content </li>
+                              <li>Harrashment and non - consensual nudity </li>
+                              <li>Miss information & Fake News </li>
+                              <li>Terrorism and Extremism </li>
+                              
+
+
+                            </ol>
+                    
+                          <hr>
+                            <h2 class="m-2 p-2">Encouraging Respectful Behaviour </h2>
+                            <p class="m-2 p-2">
+                               People ( including students) use Learnincreation / Leafnotion to share thier notion / study materials / notes / experiences and to raise awareness about issues that are important to them. This means that you may encounter with opinions that are different from yours. which we beleive can leads to important conversation about difficult topics. To make balance the need , safety and interest of a diverse community, however we may remove certain kind of contetn or limit the audience that sees it. </p>
+
+
+                               <ol>
+                                 <li>Hate Speech and Discrimination</li>
+                                 <li>Graphic, Obsebce abd Sexual content</li>
+                                 <li>Cyberbulling</li>
+                                 <li>Spamming, Scamming and Phishing</li>
+                                 <li>Malicious Program or Link</li>
+                               </ol>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2 class="m-2 p-2">Acknowledge Cultural Diversity </h2>
+            <p class="m-2 p-2">
+                               People ( including students) use Learnincreation / Leafnotion to share thier notion / study materials / notes / experiences and to raise awareness about issues that are important to them. This means that you may encounter with opinions that are different from yours. which we beleive can leads to important conversation about difficult topics. To make balance the need , safety and interest of a diverse community, however we may remove certain kind of contetn or limit the audience that sees it. </p>
+
+
+                               <ol>
+                                 
+                                 <li>Religiously Offensive Content</li>
+                                 
+                               </ol>
+                    <hr>
+                    <h2 class="m-2 p-2">Empowering You </h2>
+                
+            <p class="m-2 p-2"> </p>
+
+
+                               <ol>
+                                 <li>Keeping your Account & Personal information secure</li>
+                                 <li>
+                                 Protecting your Intellectual Property</li>
+                                 <li>Invasion of Privacy</li>
+                                 <li>Illegal Activity</li>
+                                 <li>Indentity Theft & Impersonation</li>
+                                 <li> Intellectual Property Infrigement </li>
+                               </ol>
+
+                </div>
+            </div>
+            <!-- terms div end -->
+        </div>
+             
+        </div>
+    </div>
+  
+
+ 
+
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,159 @@
+{% extends 'geeks/base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+Add Notes . Learnincreation Geeks
+
+{% endblock title %}
+
+
+{% block meta %}
+<meta name="google-adsense-account" content="ca-pub-9133208017441567">
+{% endblock meta %}
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"> 
+        <a class="nav-link mt-3 " href="{% url 'home' %}">Home</a>
+
+         {% if user.is_authenticated %}
+      
+          
+
+           <a class="nav-link mt-3" href="{% url 'geeks-home' %}"><b>For Students</b></a>
+    
+      <a class="nav-link mt-3" href="{% url 'file-list' %}"><b>Note's Files </b></a>
+      		
+      <a class="nav-link mt-3" href="{% url 'post-list' %}"><b> Note's</b></a>
+
+          <a class="nav-link mt-3" href="{% url 'setting' %}">Setting</a>
+
+        {% else %}
+        <a class="nav-link text-primary mt-3 " href="{% url 'login' %}"><button class="btn btn-primary p-1" style="font-size: 15px;"> Sign in </button></a>
+        {% endif %}
+
+       <span class="navbar-text  mt-3 p-2">
+       Welcome To Learnincreation Geeks
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endblock navbar %}
+
+{% block content %}
+
+  <main id="main" class = 'mt-5'>
+
+  
+  
+<!--navigation -->
+<div class="container  mb-5">
+		<div class="row mt-1 pt-1">
+			<nav class="navbar fixed-bottom navbar-light bg-white text-dark shadow-sm">
+
+			  <a class="navbar-brand p-2" href="{% url 'post-list' %}">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+  <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg>
+			  </a>
+
+
+
+
+			  <a class="navbar-brand p-2" href="{% url 'post-create' %}">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z"/>
+  <path fill-rule="evenodd" d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"/>
+</svg>
+			  </a>
+
+
+			  <a class="navbar-brand p-2" href="{% url 'file-create' %}">
+			  	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+  <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+</svg>
+			  </a>
+
+
+			  <a class="navbar-brand p-2" href="{% url 'file-list' %}">
+			 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
+  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+  <path d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.712 5.712 0 0 1-.911-.95 11.651 11.651 0 0 0-1.997.406 11.307 11.307 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.266.266 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.71 12.71 0 0 1 1.01-.193 11.744 11.744 0 0 1-.51-.858 20.801 20.801 0 0 1-.5 1.05zm2.446.45c.15.163.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.876 3.876 0 0 0-.612-.053zM8.078 7.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"/>
+</svg>
+			</a>
+			
+			<!-- <a class="navbar-brand" href="#">
+			 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+				  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+				</svg>
+			 </a> -->
+			  
+			</nav>
+		</div>
+
+<!-- end navigation-->
+
+   
+        <section id="about" class="container">
+        	<div class = "row" >
+			      <!--  <div class = "col-lg-6 md-6 sm-12">
+			        			<div class="container mb-4 " style="margin-top: 100px;  width:100%; " >
+				    <div class="card center" >
+				      <div class="card-body shadow ">
+				          <div class="content-section border-bottom m-5">
+							<h1 style="text-transform: capitalize; font-weight: lighter; font-size: 15px;">Share your Own Subject Notes, Helps Other Learner to  Learn with you !! </h1>
+						
+							  </div>
+							</div>
+							
+						 </div>
+			          </div>
+
+			        	</div> -->
+			        	
+			        <div class="col-lg-10 md-10 sm-12" style='margin:auto; padding:auto;'>
+			     	<div class="container mb-4 " style="margin-top: 100px;  width:100%; " >
+				    <div class="card center" >
+				      <div class="card-body shadow ">
+				          <div class="content-section border-bottom m-5">
+							<h1 style="text-transform: capitalize; font-weight: lighter; font-size: 15px;" class='p-2'>Upload note's image and try to summarize the 
+                            main points under two paragraph with a Key-points !! </h1>
+							<form method="post" enctype="multipart/form-data">
+								<div class="form-group">
+												{% csrf_token %}
+												{{ form.media }}
+											    {{ form|crispy }}
+											    <button class="btn btn-primary m-2" type="submit"> Post My Note </button>
+								</div>
+							</form>
+							  </div>
+							</div>
+							
+						 </div>
+			          </div>
+			      </div>
+
+			               	
+			          </div>
+			      </div>
+          </section>
+</main>
+
+
+{% endblock content %}
+
+
+	

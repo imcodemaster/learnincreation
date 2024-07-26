@@ -1,0 +1,443 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+
+ {% block title %}
+     Learning Pathway - Learnincreation Geeks 
+ {% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Before enrolling any online course, first fix your path and know your route then take small steps and keep learning every day with Learnincreation Geeks.  ">
+  <meta name="keywords" content="Learnincreation Pathway, Learning method, goal setting , e books , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+{% block navbar %}
+  
+  
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <div class="container-fluid">
+ 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link "  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link active " aria-current="page" href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a> <!-- also can be 
+        <a href='accounts/login' > Sign in </a> -->
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock navbar %}
+
+{% block content %}
+
+<!-- main body container start -->
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid mt-5 p-2" style = "margin-top:100px; padding-left:50px;">
+      <h7> Enroll our courses and help yourself to grow with computer science learning for career enhancement. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+
+
+
+  <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" style="margin-bottom: 50px;" >   
+               <div>
+                  <img  src="{% static 'landing/images/path-2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">  
+                  <hr>    
+               </div>
+        </div>
+    </div>   
+     
+   <!-- pathway -1 season  -->
+   
+   <!-- image-div-->
+   <div>
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >
+        <h2 class=" p-3 text-dark " style="font-weight:bold; font-size:35px; margin-bottom:100px;"> Pathway for <span style="color: orange;"> Sequential and  Better Learning </span> </h2>
+                   <p> In order to get the Best Outcomes, you must Perform the Best. Follow these simple 4-step formula before enrolling geeks course or setting everything ready. </p> 
+        <hr>
+            <p>1. First, Find your Focus area.</p>
+            <p>2. Second, Collect related information.</p>
+            <p>3. Third, Set your Goals.</p>
+            <p>4. Fourth, Follow the path to acheive your goals.</p>
+            <hr>
+             {% if user.is_authenticated %}
+              	<small class="m-1 p-2"> Want to Download  <a href="{% static 'landing/guides/Pathway-Guide-Learnincreation.pdf' %}" download> <span style="font-size: 14px;"> Learnincreation Geeks - Pathway Guide</span> </a> </small>
+              	<hr>
+             {% else %}
+        			<small class="m-1 p-2"> <a href= "{% url 'login' %}" > Register Yourself </a> to Download Pathway Guide ! </small>
+
+             {% endif %}
+   
+          
+               <div>
+                  <img  src="{% static 'landing/images/pathway-1.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+   </div> 
+   <!-- text-div--> 
+   <div>
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;">Learn With Learnincreation -  
+                 <span style="color: orange; font-weight: bold;">Season - 1 <br>First let's clear your Basic Fundamentals of standard 6-12th.</span></h2>
+              </div>
+                   
+              <p class=" ml-3 p-2">     
+              <a href="https://www.youtube.com/watch?v=U261uvNjUhU&list=PLalqGyNDu2uczn1siL3IpBvosQtLBS5Iu" class="text-white" ><button class="btn btn-danger text-white p-2 m-1"> Watch on Youtube </button> </a>  <hr>
+               <a href="{% url 'geeks-video' %}" class="text-primary m-1 p-2"> No, Take me to Video Lectures </a>
+               </p>
+                
+               
+   <hr>
+             {% if user.is_authenticated %}
+              <small class="m-1 p-2"> Want to Download  <a href="{% static 'landing/guides/how-to-be-guide-learnincreation.pdf' %}" download> <span style="font-size: 14px;"> Learnincreation Geeks - How to be? Guide</span> </a> </small>
+              <hr>
+              {% else %}
+              <small class="m-1 p-2">Register Yourself to Download How to Be ? Guide ! </small>
+
+              {% endif %}
+   
+        </div>
+    </div>
+  </div>
+   <!-- pathway -1 season section end -->
+   
+   <!-- pathway -2 season section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+     
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;">Learn With Learnincreation -  
+                 <span style="color: orange;font-weight: bold;">Season - 2 <br>Dive deep into Web-designing.</span></h2>
+               <button class="btn btn-primary text-white p-2 m-3"> Unlock in March </button> 
+
+               </div>
+              
+              <hr>
+        </div>
+    </div> 
+   <!-- pathway season-2 section  end -->  
+   
+        
+   <!-- pathway project season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-3.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;">Build your Project  
+                 <span style="color: orange;font-weight: bold;">for Upcoming lesson reference<br>and also project helps to Build your  Portfolio.</span></h2>
+                   
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   <!-- pathway project season section end -->
+      
+    
+  <!-- pathway doubt clear session season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-9.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Learn with Learnincreation -   
+                 <span style="color: orange;font-weight: bold;"><br> Doubt Clear Session . Dont Assume Ask ! </span></h2>
+                     <p>Write your notes while learning and in a state of doubt's, write your questions (with course name you learning) <a href="{% url 'contact' %}" class="text-primary">to us. </a></p>
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   <!-- pathway doubt clear session season section end -->
+    
+
+
+   <!-- pathway - season 3 - programming  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-5.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+
+                  <h2 style="font-size:30px; padding:40px; float:center;">Learn With Learnincreation -  
+                 <span style="color: orange;font-weight: bold;">Season - 3 <br>Hello To Programming World !!.</span></h2>
+                      
+               
+               <button class="btn btn-primary text-white p-2 m-3"> Unlock Lesson </button> 
+              <hr>
+            </div>
+        </div>
+    </div>
+  
+   <!-- pathway -3 season section end -->
+   
+   <!-- pathway - season-4 things to focus  season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-4.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Learn with Learnincreation -   
+                 <span style="color: orange;font-weight: bold;">Season 3.1 - Don't Just code - Code like Pro  - Think Twice, Code Once.</span></h2>
+                     
+               
+               <button class="btn btn-primary text-white p-2 m-3"> Unlock Lesson </button>
+              <hr>
+            </div>
+        </div>
+    </div>
+  
+   <!-- pathway -4 season section end -->
+    
+
+ <!-- pathway - season-5 things to focus  season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-6.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Learn with Learnincreation -   
+                 <span style="color: orange;font-weight: bold;">Season 4 - Learn Database Management</span></h2>
+                     
+            
+               <button class="btn btn-primary text-white p-2 m-3"> Unlock Lesson </button> 
+              <hr>
+            </div>
+        </div>
+    </div>
+  
+   <!-- pathway -5 season section end -->
+    
+ <!-- pathway - season-6 things to focus  season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-7.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Learn with Learnincreation -   
+                 <span style="color: orange;font-weight: bold;">Season 5 Code Like A Full Stack </span></h2>
+                     
+               
+               <button class="btn btn-primary text-white p-2 m-3"> Unlock Lesson </button> 
+              <hr>
+            </div>
+        </div>
+    </div>
+  
+   <!-- pathway -6 season section end -->
+    
+
+ <!-- pathway - season-7 things to focus  season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-8.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Learn more with Learnincreation Geeks -   
+                 <span style="color: orange;font-weight: bold;">Learning Resources.</span></h2>
+                     
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   <!-- pathway -7 season section end -->
+
+  
+
+  <!-- pathway doubt clear session season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-10.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Learn  with Learnincreation -   
+                 <span style="color: orange;font-weight: bold;"><br> Doubt Clear Session . Dont Assume Ask ! </span></h2>
+                     
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   <!-- pathway doubt clear session season section end -->
+    
+
+
+  <!-- pathway doubt clear session season  -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/pathway-11.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;"> Get Rewards for your Efforts 
+                 <span style="color: orange;font-weight: bold;"><br>Course Completion Certificate </span></h2>
+                     
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   <!-- pathway doubt clear session season section end -->
+    
+
+
+  <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row shadow" >   
+               <div class="m-2 p-2">
+                  <img  src="{% static 'landing/images/path-3.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+
+     
+</div> <!-- main body container end --> 
+
+
+{% endblock content %}
+ 

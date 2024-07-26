@@ -1,0 +1,162 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+      <h7> We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our  <a href="#"> community guidelines here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/helpdesk.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>    
+
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:10px;;" >   
+                        <div class="col-12 m-2 p-2 m-2 p-2 ">
+                            <h2 class="section-title m-2 p-2"> Need Help With  </h2>
+                            <hr>
+
+                            <h3 class="m-2 p-2"> Question no 1 ? </h3>
+
+                            <p class="m-2 p-2">
+                             Answer of 1 
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2"> Question no 2  ? </h3>
+
+                            <p class="m-2 p-2">
+                              Answer of 2 
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2"> Question no 3  ? </h3>
+
+                            <p class="m-2 p-2">
+                              answer of 3
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2">Question no 4 ? </h3>
+
+                            <p class="m-2 p-2">
+                              answer of 4
+                            </p>
+
+                            <hr>
+
+                            <h3 class="m-2 p-2"> How can I Launch my Website ? </h3>
+                            <p class="m-2 p-2"> You just need to know about three things before going to launch a website. A Domain Name (www.yourcompany.com - Your online name address),
+
+                            A Website (An application which welcome your customer andprovide them an info about your business and services ) &
+
+                            A Hosting Service ( Hosting referto a computer where your website is keep runing so that anyone from anywhere in a world can access it with Your Domain Name.) </p>
+
+                            <hr>
+
+                            <h3 class="m-2 p-2"> How much it cost to launch a Webstie ? </h3>
+                            <p class="m-2 p-2">
+                              Website has many function and purpose based on your Business, you can start with Standard Static website & can go to big e-commmerce website or as per your requirement to aware your potential customer about your business.
+
+                              We suggest you to learn more about Start Plus + program (A Complete Yearly Package for StartUp or Small business) as its was for good start to understand all things worked !! 
+                            </p>
+
+                            <hr>
+
+                            <h3 class="m-2 p-2"> What is Start Plus + Program ? </h3>
+
+                            <p class="m-2 p-2">
+                              Start Plus + programm is a complete customizable company portfolio website for small business or StartUp to start with their Online presences for a year with all required packages including (Domain name, Website , Hosting for a year and also 1 Year Maintaince charges ) only @ 9025/-INR. A Product By LearnInCreation to encourage our small business Owner and StartUp. 
+                            </p>
+
+                            <hr>
+                        </div>
+        </div>
+      </div>
+
+   
+   
+ 
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/helpdesk-2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>  
+  
+   
+     
+ <!-- text-div--> 
+
+  
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+                <p class="m-1 p-2" style="font-size: 20px;">
+                   Are you looking <a href="{% url 'contact' %}"> for Help </a>  regarding our service, product or portal !  
+                   </p> 
+              <hr>
+        </div>
+    </div>  
+  
+
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,111 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+
+ {% block title %}
+     Question Saved For Quick Revision | Learnincreation Geeks
+ {% endblock title %}
+
+<!-- meta tags for seo -- >
+{% block meta %}
+
+{% endblock meta %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link " href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link " href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_superuser %}
+            
+             <a class="nav-link" href="{% url 'question-create' %}"><button class="btn btn-primary p-1" style="font-size: 12px;" > Create Question </button></a>
+            
+           {% endif %}
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div> 
+         </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div class="mt-5 ">
+                  <img  src="{% static 'landing/images/question-page.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3">Question Saved  <span style="color:orange; font-weight: bold;"> for Quick Learn </span> </h1>
+          <hr>
+          
+          <div class="col-md-8 p-3">
+            {% for question in saved %}
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+                <h5>Topic {{ question.topic }}</h5>
+                <small class="text-muted"> Posted on {{question.published_on}}</small>
+                <br>
+
+                <h3 class="card-text text-dark ">Ques. - <b class="text-dark">{{ question.question }}</b> </h3>
+                <h7> <small class="text-muted">Branch - <b class="text-primary">{{question.tags}}</b></small></h7>
+            <hr>  
+        <p class="card-text text-dark ">
+         <a href="{% url 'question-detail' question.pk %}"><button class="btn btn-outline-primary"> Read Answer</button></a> </p>
+          <hr>
+          {% if user == request.user %} 
+
+           This wasn't helpful now, I don't want to save that for later ! <a href="{% url 'quick-save' question.id %}"><button class="btn btn-primary p-1" style="font-size: 12px;"> Remove from Notes </button> </a> 
+         {% endif %}
+              </div>
+            </div>
+            <hr>
+            {% endfor %}
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> My Collection </h2> <br>
+                <p class="card-text "><a href="{% url 'course-bookmark-list' %}" class="text-white"> Enrolled Courses </a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'video-bookmark-list' %}" class="text-white"> Saved Lesson </a></p> <hr>
+                
+                <p class="card-text "><a href="{% url 'lesson-bookmark-list' %}" class="text-white"> Saved Notes </a></p><hr>
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

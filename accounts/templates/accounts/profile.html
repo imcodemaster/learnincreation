@@ -1,0 +1,186 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+ {{user.username}} Profile in Learnincreation 
+{% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " {{user.username}} Profile in Learnincreation. Join Learnincreation Geeks who knows you find geeks friends and mates or found your mates or firends is a  geek ! ">
+  <meta name="keywords" content="Learnincreation Subscribe, Learnincreation Newsletter , e books , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+        <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link"   href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+       <a class="nav-link " href="{% url 'logout'%}" style="font-size: 8px;" > <button class="btn btn-danger p-1"> Sign out </button></a>
+        
+       
+       <span class="navbar-text p-2" >
+        
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+
+
+{% block content %}
+<div class="container">
+     <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+       <small> Manage your own Account setting and don't forget to regulalry update your password from <a href="{% url 'setting' %}">setting</a> page.<br> Enter your birth date in - <code>year-month-date</code> format. 
+                Mobile field contain only 10 digits, if your mobile digits are greater (if you are form outside of India) leave that field blank.
+                Also, if any of the above details are fake your account will be suspended. Read <a href="{% url 'community' %}">community guidance </a> for details </small>
+    </div> 
+    <hr>
+    <div class="row mt-5">
+        <div class="col-md-3 col-sm-6 mt-1">
+            <a href="{% url 'indexpage' %}" class="btn btn-primary m-1">Back to Home</a>           
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5 p-3" >
+        <div class="card col-md-7 col-sm-12 px-5 pt-3 shadow mb-5" style="border-radius: 20px;">
+           <div class="row">
+            
+            {% if profile.picture %}
+                <div class="col-md-2 sm-2 lg-2 m-3"> 
+                    <img src="{{ profile.picture.url }}" class="rounded-circle" width="80" height="80" / style="float: center;">
+
+                </div>
+                {% endif %}
+
+                <div class="col-md-6 sm-6 lg-6"> 
+
+                    {% if user.first_name %}
+                        <h3 class="m-1 p-2 justify-content-center" style="font-size:15px;">{{ user.first_name }} {{user.last_name}} <br> </h3>
+                    {% endif %}
+        <small class="text-primary m-1 p-2"><a href="{% url 'profile' profile.pk %}"> <code>@{{user.username}}</code></a>
+                    </small>
+                                </div>
+
+            
+               <!-- <div class="col-md-4 sm-4 lg-4"> 
+                    
+                    {% if user == request.user %}
+                    {% else %}
+                    {% if is_following %}
+                    <form method="POST" action="{% url 'remove-follower' profile.pk %}">
+                    {% csrf_token %}
+                        <button class="btn btn-primary"> Unfollow </button> 
+                    </form>
+                    {% else %}
+                    <form method="POST" action="{% url 'add-follower' profile.pk %}">
+                    {% csrf_token %}
+                        <button class="btn btn-primary"> Follow </button> 
+                    </form>
+                    {% endif %}
+                    {% endif %}
+
+
+                         <span class="p-1">Mates : {{number_of_followers}}</span>
+                    
+                </div>
+                 -->
+                
+
+
+    </div>
+                <hr>
+                <div class="m-1 p-1 mb-4" style="font-size: 10px;  font-weight: normal;">
+                    <span>User Id : <code>{{ user.username }}</code></span><br>
+                    {% if profile.birth_date %}
+                    <span>Wish me on : {{ profile.birth_date }}</span> 
+                    {% endif %} <br>
+
+                    {% if profile.bio %}
+                    <span>Bio in Brief : {{ profile.bio }}</span>
+                    <hr>
+                    {% endif %}
+                    
+                    {% if profile.academicbackground %}
+                    <span>Academic Board : {{ profile.academicbackground }}</span> <br>
+                    {% endif %}
+                    {% if profile.standard %}
+                    <span>Standard : {{ profile.standard }}</span>
+                    {% endif %} and
+                    {% if profile.school_name %}
+                    <span>Studies @  {{ profile.school_name }}</span>
+                    {% else %}
+                    <span>Studies @ Learnincreation Geeks</span>
+                    <hr>
+                    {% endif %}
+                    
+                     {% if profile.country %}
+                    <span>Country : {{ profile.country }}</span> |
+                    {% endif %}
+                    {% if profile.location %}
+                    <span>State : {{ profile.location }}</span>
+                    <hr>
+                    {% endif %}
+                    
+                    {% if profile.address %}
+                    <span>Lives in : {{ profile.address }}</span>
+                     {% endif %}
+                    <br>connect via : {{user.email}} 
+
+                   {% if user == request.user %}
+                    <hr>
+                    <a href="{% url 'profile-edit' user.profile.pk %}" class="btn btn-primary m-1">Edit Profile</a>
+                {% endif %}
+                </div>
+        </div>
+
+          <div class="col-md-5 col-sm-12">
+            <div class="card card-signin m-3 shadow p-2 bg-primary" style="border-radius: 20px;">
+              <div class="card-body  text-white">
+                <h2> My Collection </h2> <br>
+                <p class="card-text "><a href="{% url 'course-bookmark-list' %}" class="text-white"> Enrolled Courses </a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'video-bookmark-list' %}" class="text-white">Saved Lesson</a></p><hr>
+                <p class="card-text "><a href="{% url 'save-list' %}" class="text-white">Quick Revision</a> </p><hr>
+                <p class="card-text "><a href="{% url 'lesson-bookmark-list' %}" class="text-white"> Saved Notes </a></p><hr>
+
+              </div>
+            </div>
+           </div>
+</div>
+
+</div>
+<hr>
+
+
+{% endblock content %}
+
+<div class="card-body  text-white">
+                <h2> Help ! </h2> <br>
+                <p class="card-text ">Enter your birth date in - <code>year-month-date</code> format. <hr>
+                Mobile field contain only 10 digits, if your mobile digits are greater (if you are form outside of India) leave that field blank <hr>
+                Also, if any of the above details are fake your account will be suspended. Read <a href="{% url 'community' %}">community guidance </a> for details  </p>
+
+              </div>

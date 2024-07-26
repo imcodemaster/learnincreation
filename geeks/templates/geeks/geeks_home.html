@@ -1,0 +1,233 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+ {% block title %}
+     Learnincreation Geeks - Online Learning Portal
+ {% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Learnincreation Geeks is an Online learning Portal for students and learner who are studing or willing to studing computer science. Learnincreation is  place of self learning where we also provide course e-book, study material and much helpful content for 6 to 12 standards students">
+  <meta name="keywords" content="Learnincreation Geeks, Online lerning, study  portal , e books , free, business guide, online , business, how to , learn , comuputer science , basic computer course, cbse computer course, academic indian course  ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+{% block navbar %}
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <div class="container-fluid">
+ 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active " aria-current="page" href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link "  href="{% url 'geeks-ebook' %}">E-Books </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+
+                <a class="nav-link active " aria-current="page" href="{% url 'post-list' %}"> Geeks Note </a>
+
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock navbar %}
+
+{% block content %}
+
+<!-- main body container start -->
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  -->
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+
+    {% if user.is_authenticated %}
+
+      <h7> Hello <span style="text-transform: capitalize;">{{user.username}}</span>,  <b> Welcome to Learn<span style='color: orange;'>increation</span></b> <br> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7> 
+      
+      {% else %}
+
+       <h7> Register Yourself, and join community of Learnincreation <a href="{% url 'registerpage'%}"> Sign Up.</a> </h7> 
+
+      {% endif %}
+
+    </div>
+
+  <hr> 
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/geeks-home.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2 style="font-size:30px; padding:40px; float:center;">Learnincreation Geeks is an Online Learning Portal for student and individual willing to learn Computer Science for carrer enhancement. To be a Geek you must know the rule. <span style="color: orange;"> Self Learning is the Key !</span></h2>      
+               </div>
+              <hr>
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/geeks-community-2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 class="m-2 p-2"> First Fix your Path </h1>
+                  <p style="font-size:25px; padding:40px; float:center;"> Before you Enroll any course or start your journey, its good to fix your path first and decide what you want to be or wanna learn . 
+                        <span style="color:orange;"> <b>Every carrer section has its own pathway and required skills you must know earlier before you invest your time and effort . </b></span>  </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'pathway' %}"> <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;"> Explore Pathway  </button></a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+   <!--  Learnincreation Geeks Portal Section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/padega-india.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2>Padega India <span style="color:orange;">Tabhi to Badega India </span></h2>
+                  <p style="font-size:25px; padding:40px; float:center;">An Online Learning Portal for students or learner to learn Computer Sciences in a New Interactive way and Effective pathway for Better Brightfull Future. 
+                        <span style="color:orange;"> <b>Learn Anything, At Anytime, From Anywhere.</b></span>  </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'geeks-courses' %}"> <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;"> Course Catalogue </button></a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>
+
+   
+   <!--  Learnincreation Geeks Portal Section End -->
+   
+   <!--  LeafNotion Portal Section -->
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/video/8.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> Help Other to grow  <span style="color:orange;"> - Share your Notes </span> </h2>
+                  <p style="font-size:25px; padding:40px; float:center;"> Don't focus on learning more, focus on implementing more, helps other to grow, Publish your own written article ( research on any topic) and help your friends to learn.
+                        <span style="color:orange;"> <b> Also share your notes with your friends and follow the rule - <i>Bro Code !!</i></b></span>  </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"><a href="{% url 'shareyourknowledge' %}"> <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;"> I want to Participate </button></a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>
+
+   
+   <!--  share your knowledge  Section End --> 
+
+   <!-- Grab your Digital Business E books on MAil (subscription) - Section --> 
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+     
+                  <img  src="{% static 'landing/images/video/4.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> Watch Video Lesson <span style= "color:orange;"> - Clear Your Concept   </span> </h2>
+                  <p style="margin-top:50px; font-size:25px;" > Watch course lesson video and learn in dept concept, if you have any question regarding lesson <span style= "color:orange;"> Ask it on Right Time ! </span> and get your concept clear in course doubt clear session video. <span style= "color:orange;"> "Stay tuned for updates, directly on your inbox." </span> </p>
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'geeks-video' %}" > <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;" data-toggle="tooltip" data-placement="top" title="Watch Video Lesson " >Watch Video Lesson </button> </a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>
+     
+   
+   <!-- Grab your Digital Business E books on MAil (subscription) - Section --> 
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/5.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> Get Your E-book <span style= "color:orange;"> - Directly on Mail </span> </h2>
+                  <p style="margin-top:50px; font-size:25px;" > Subscribe us for <span style= "color:orange;"> FREE !!! </span> and <br> get our newsletter and free e-books <span style= "color:orange;"> update  directly on your inbox. </span> </p>
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'subscribe' %}" > <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;" data-toggle="tooltip" data-placement="top" title="Get Digital Copy fo E-book , directly on mail." > I Need E-book </button> </a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>
+     
+  
+   <!-- Grab your Digital Business E books on MAil (subscription) - Section --> 
+  
+
+
+
+     
+</div> <!-- main body container end --> 
+
+
+{% endblock content %}
+ 

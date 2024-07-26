@@ -1,0 +1,242 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+ {% block title %}
+    {{coursearticle.title}} | Learnincreation Geeks
+ {% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+   <meta name="description" content= " {{coursearticle.meta}}">
+  <meta name="keywords" content=" {{coursearticle.title}} , Learnincreation E-book, Digital Marketing course ,  Learnincreation for Business , Library , e books library , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link "  href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link"   href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container mt-5">
+        <div class="row ">
+       
+          <h2 class="p-3 mt-5"> Course Lesson - <span style="color:orange; font-weight: bold;"> {{coursearticle.title}} </span> </h2>
+             <div class="col-md-3 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 " style="background-color: #483D8B">
+               
+              
+              <h5 class="text-white">{{coursearticle.course}}</h5>
+              <hr class="text-white">
+                <p class="text-white">{{coursearticle.course.description}}</p>
+               
+             
+            </div>
+           </div>
+
+          <div class="col-md-6 p-3">
+            <div class="card card-signin my-5 shadow p-4">
+   
+              <div class="card-body p-2 m-1">
+               <h6>From Course <b class="text-primary">{{ coursearticle.course }}</b></h6>
+                  <hr>
+              {% if coursearticle.snap %}
+                 <div class='card-head'>  <img src="{{ coursearticle.snap.url }}" width='300' height="300" style="padding: 5px;" /> </div>
+              {% endif %} 
+                <hr>
+                {% if user.is_superuser %}
+                          <a href="{% url 'coursearticle-update' coursearticle.pk %}"><button class="btn btn-primary p-1">  Update </button> </a>
+                          <a href="{% url 'coursearticle-delete' coursearticle.pk %}"><button class="btn btn-danger p-1">Delete</button> </a>
+                <hr>
+                {% endif %}
+                
+                <h7> <small class="text-muted">Level - {{coursearticle.standard}} standard</small></h7><br>
+                <small class="text-muted"> Posted on {{coursearticle.published_on}}</small>
+                <hr>
+       <div>         
+        <p class="card-text text-dark ">
+         {{coursearticle.body}} 
+       </p>
+         <hr>
+         
+        
+  
+          <div> 
+             <p class="card-text text-dark ">
+          {% if coursearticle.snap_add_1 %}      
+          <div>
+                  <img src="{{ coursearticle.snap_add_1.url }}"  width='300' height="300" style="padding: 5px;" />
+              </div>
+          <hr>
+          {% endif %}
+             
+	         {% if coursearticle.body_add_1 %}
+            <h3>{{coursearticle.heading_add_1}}</h3>
+              {{coursearticle.body_add_1}}
+          <hr>
+         {% endif %}
+            </p>
+          </div>
+         
+         
+         
+         <p class="card-text text-dark ">
+         {% if coursearticle.snap_add_2 %}   
+         <img src="{{ coursearticle.snap_add_2.url }}" width='300' height="300" style="padding: 5px;" />
+         {% endif %}
+         {% if coursearticle.body_add_2 %}
+              <h3>{{coursearticle.heading_add_2}}</h3>       
+            <hr>
+          {{coursearticle.body_add_2}} <hr>
+          {% endif %}
+         </p>
+          
+         
+            <p class="card-text text-dark ">
+            {% if coursearticle.snap_add_3 %}
+            <img src="{{ coursearticle.snap_add_3.url }}"  width='300' height="300" style="padding: 5px;" /> 
+			{% endif %}
+         {% if coursearticle.body_add_3 %}
+         <h3>{{coursearticle.heading_add_3}}</h3>
+                     <hr>
+          {{coursearticle.body_add_3}} <hr>
+          {% endif %}
+        </p>
+          
+
+        
+        <p class="card-text text-dark ">
+        {% if coursearticle.snap_add_4 %}    
+        <img src="{{ coursearticle.snap_add_4.url }}"  width='300' height="300" style="padding: 5px;"/>
+        {% endif %} 
+        {% if coursearticle.body_add_4 %}
+         <h3>{{coursearticle.heading_add_4}}</h3>
+ 
+          <hr>
+          {{coursearticle.body_add_4}}
+        <hr>
+        {% endif %}
+         
+        </p>
+          
+ 
+		<p class="card-text text-dark ">
+        {% if coursearticle.snap_add_5 %} 
+        <img src="{{ coursearticle.snap_add_5.url }}"  width='300' height="300" style="padding: 5px;" />
+        {% endif %} 
+        {% if coursearticle.body_add_5 %}
+         <h3>{{coursearticle.heading_add_5}}</h3>
+         
+          <hr>
+          {{coursearticle.body_add_5}} <hr>
+        {% endif %}
+        </p>
+        
+
+         
+      
+         <p class="card-text text-dark ">
+         {% if coursearticle.snap_add_6 %}
+        	 <img src="{{ coursearticle.snap_add_6.url }}"  width='300' height="300" style="padding: 5px;" />
+ 		{% endif %}
+         {% if coursearticle.body_add_6 %}
+         <h3>{{coursearticle.heading_add_6}}</h3>
+                  <hr>
+          {{coursearticle.body_add_6}}
+			<hr>
+          {% endif %}
+          </p>
+         
+
+		{% if coursearticle.body_add_7 %}
+          <h3>{{coursearticle.heading_add_7}}</h3>
+          <p class="card-text text-dark ">
+            {{coursearticle.body_add_7}}
+          </p>
+          <hr>
+      {% endif %}
+
+
+         <div class="card text-white bg-dark active mb-3" style="max-width: inherit;">
+  <div class="card-header"><img src="{% static 'landing/images/question.png'%}" width="20" height="20"> <b>Important </b></div>
+  <div class="card-body">
+    <h5 class="card-title">Key Point : </h5>
+    <p class="card-text">"{{coursearticle.keynote}}" .</p>
+  </div>
+</div>
+         
+         <hr>
+      {% if user == request.user %}
+
+           This was helpful, I want to save that for later !  <a href="{% url 'lesson-bookmark' coursearticle.id %}" data-toggle="tooltip" data-placement="top" title="Save this as Note"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-box-arrow-in-down" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
+  <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+</svg>
+            <!--<button class="btn btn-primary p-1" style="font-size: 12px;"> Saved Notes </button> --> </a> </abbr>
+         {% endif %}
+         
+       
+  </div>
+         
+
+              </div>
+            </div>
+            <hr>
+           </div>
+
+
+
+
+           <div class="col-md-3 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Explore More on </h2> <br>
+                <p class="card-text text-white"> <a href="{% url 'lesson-bookmark-list' %}" class="text-white" style='text-decoration:none;'> Saved Notes </a> </p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-courses' %}" class="text-white" style='text-decoration:none;'> Geeks Courses</a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-question' %}" class="text-white" style='text-decoration:none;'> Question/Answer</a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-video' %}" class="text-white" style='text-decoration:none;'> Video Lesson </a></p> <hr>
+                <p class="card-text text-white"><a href="{% url 'geeks-ebook' %}" class="text-white" style='text-decoration:none;'> E-Books Library </a></p> <hr>
+              <p class="card-text text-white"><a href="https://amazon.com/author/vinaybhatt" target ='__blank' class="text-white" style='text-decoration:none;'> Amazon Kindle </a></p> <hr>
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}

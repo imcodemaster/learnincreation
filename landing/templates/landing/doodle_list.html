@@ -1,0 +1,118 @@
+{% extends "landing/main.html" %}
+{% load static %}
+
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"> 
+       
+
+         {% if user.is_authenticated %}
+      		
+      		
+		<a class="nav-link mt-1"><img src="{{ user.profile.picture.url }}" class="rounded-circle p-1" width="40" height="40" style="padding: auto;margin: auto;"></a>
+			
+
+          <a class="nav-link mt-1" href="{% url 'setting' %}">Setting</a>
+
+        {% else %}
+        <a class="nav-link text-primary mt-1 " href="{% url 'login' %}"><button class="btn btn-primary p-1" style="font-size: 15px;"> Sign in </button></a>
+        {% endif %}
+
+       <span class="navbar-text  mt-1 p-2">
+       Welcome To Learnincreation
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+{% block content %}
+
+<div class = 'container'>
+  <main id="main" class=" bg bg-light mt-1 pt-1  " style="padding: auto; margin: auto;">
+		<div class="row mt-5 p-5 ">
+			<div class="col-md-6 lg-6 sm-10 mb-4 ">
+				<div class="card bg bg-primary text-white shadow-sm" >
+					
+					<div class="card-body m-2 p-2">
+
+							<p>
+							#ExploreMore
+						</p>
+					<hr>
+						<h4 style="font-weight: bolder;">Greeting, {{user.username}} ! </h4>
+                    <h5> Today is a Beautiful day ! </h5>
+					<hr>
+					{% if user.is_superuser %}
+						<a href="{% url 'doodle-create' %}"><button class="btn btn-sm bg-white text-dark p-2">
+							Create New
+						</button></a>
+					{% endif %}
+					</div>
+				</div>
+			</div>
+ 
+
+
+  				<div class="col-md-6 lg-6 sm-12 ">	
+
+  							{% for doodle in doodle_list %}	
+  					<div>
+
+					<div class="card m-1 shadow p-2 mb-5 bg-white rounded" style="width: inherit;">
+
+						<h2><span style="font-weight: bold; font-size: 13px;">
+							 {% if doodle.event %}
+							  Related to -  {{doodle.event}}
+							 {% endif %}
+							</span> </h2>
+							
+						 <small class="text-muted p-1">Published on : {{doodle.date}}</small>
+						 <hr>
+						{% if doodle.imageURL %}
+						<img class="card-img-top " src="{{doodle.imageURL}}" alt="Card image cap" width="200" height="200" style="border-radius: 25px;">
+						{% endif %}
+						<hr>
+						<div class="card-body">
+							
+							<p class="card-title" style="text-transform:capitalize;">{{doodle.tooltip}}</p>
+						
+						<hr>
+						
+
+                        <small> Read More  </small>
+							<small class="test-muted m-4" class="lead mb-0"><a href="{{doodle.pk}}" class="text-blue font-weight-light">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
+  								<path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
+</svg> 
+</a> </small>
+							
+						</div>
+					</div>
+				</div>
+			{% endfor %}	
+
+			</div>
+  			</div>
+		</div>
+	</div>
+
+	
+</main>
+
+	
+{% endblock content %}

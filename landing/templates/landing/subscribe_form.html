@@ -1,0 +1,294 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+ {% load crispy_forms_tags %}
+
+ {% block title %}
+
+ Study Centre, Seminar and Workshop | Learnincreation Geeks
+ 
+ {% endblock title %}
+
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= "We are in a mission to Literate India Digitally, so we often conduct Seminar or Workshop with a collaboration with Educational Institute. Stay tuned to get update about our Next Session.  .">
+  <meta name="keywords" content="Learnincreation Seminar, Learnincreation workshop , e books , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"><button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+<ol class="breadcrumb">
+  <li><a href="{% url 'home' %}">Home ></a></li>
+  <li><a href="{% url 'subscribe' %}">Study Centre ></a></li>
+  <li class="active">Details</li>
+</ol>
+<hr>
+<!-- study centre -->
+<div class="container">
+    <div class="row">
+<div class="col-md-6 sm-12 lg-6">
+    <!--<a href="{% url 'contact' %}" class="thumbnail">
+          <img src="{% static 'landing/img/5.png' %}" alt="study centre image Learnincreation">
+        </a> -->
+        <h1>Hello to <code>Programming World..</code></h1>
+
+</div>
+<div class="col-md-6 sm-12 lg-6">
+    <h1>the <code><strong>Real Learning..!</strong></code></h1>
+</div>
+        
+    </div>
+    <hr>
+</div>
+ 
+<!-- recent-seminar-top-image -->
+
+  		<div class="container-fluid">
+       <h3 >
+            <b style="font-size:'74px';">"</b> 
+            <span style='padding:20px; margin:auto; font-size:18px; font-style:Goudy Old Style; color:#058CBA;'> On our mission to educate every individual/students about Computer Science, recently before Republic Day 2023, <b> We organise a Digital Computer Literacy Awareness Program in Govt. Secondary School in Chhatarpur, Udham Singh nagar.</b> 
+            Thanks to the Principal Sir and Teachers of 'राजकीय उच्च  प्राथमिक  विद्यालय , छत्तरपुर' to Join us  on our Mission of #PadegaIndiaTabhiToBadegaIndia.</span> 
+            <b style="font-size:'74px';">"</b> 
+        </h3>
+        <hr>
+<!-- cards - courses -->
+<div class="container">
+<div class="row">
+        
+            <div class="card-deck">
+              <div class="card m-3 p-2" >
+                <img class="card-img-top" src="{% static 'landing/images/pathway-2.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h2 class="card-title"> Basic Computer Courses</h2>
+                  <p class="card-text" style="font-size:26px;">Learn about Basic Concept of Computer Science and enhance your carrer with Digital Technology and Profficency to boost your future growth.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 month ago</small>
+                </div>
+              </div>
+              <div class="card m-3 p-2">
+                <img class="card-img-top" src="{% static 'landing/images/pathway-4.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h2 class="card-title">Programming Courses </h2>
+                  <p class="card-text" style="font-size:26px;">Learn about principle of Programming and deep dive into the pool of programming concept for better Information Technology Jobs.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 month ago</small>
+                </div>
+              </div>
+              <div class="card m-3 p-2">
+                <img class="card-img-top" src="{% static 'landing/images/pathway-3.png' %}" alt="Card image cap">
+                <div class="card-body">
+                  <h2 class="card-title">Website Development</h2>
+                  <p class="card-text" style="font-size:26px;">In this Digital Era , learn to create Digital Webpage and boost your career, business and much more in this Online World.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 month ago</small>
+                </div>
+              </div>
+            </div>
+        </div> <!-- row end -->
+</div>
+    <!-- car courses end -->  
+        <hr>
+    
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/design/8.png' %}" alt="Learnincreation-seminar-in-school">
+    		</div>
+        <hr>
+        <div class="row">
+      			<div class="card bg-warning active text-white shadow-sm" style="width: 30rem; margin:auto; padding:auto;border-style:none;">
+  				<!--<img class="card-img-top" src="{% static 'landing/children-batch-7.jpg' %}" alt="Card image cap"> -->
+  			<div class="card-body">
+            7<sup>th</sup> class student of	राजकीय उच्च  प्राथमिक  विद्यालय ,  छत्तरपुर 
+  				</div>
+			</div>
+    	
+        <!-- second - image --card -->
+            
+      			<div class="card mt-2 bg-primary active text-white shadow" style="width: 30rem; margin:auto; padding:auto;">
+  				<!--<img class="card-img-top" src="{% static 'landing/Children-batch-8.jpg' %}" alt="Card image cap"> -->
+  			<div class="card-body">
+   					<!-- Text if ay want to add-on card -->
+            8<sup>th</sup> class student of	राजकीय उच्च  प्राथमिक  विद्यालय ,  छत्तरपुर
+  				</div>
+			</div>
+    		       <!-- card-end -- last div- is maiin container - one of this section -->
+</div>  		
+</div>
+
+
+
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+    <h3>
+     Learnincreation Geeks in  collaboration with <i>S.B.S. Govt. P.G. College, Rudrapur , U.S.Nagar </i> 
+    conducting Three Month Professional Certification Workshop on "Digital Literacy in INDIA" .  Subscribe for a free sessions. </h3>
+    
+   
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+
+	
+  	<!--	<div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/one.png' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div> -->
+
+
+ <div class="container" style="margin:auto; padding:auto;">
+        <div class="row"style="margin:auto; padding:auto;margin-top:100px;" >   
+        <h3> Three Month Digital Literacy Workshop  -  </h3>
+        <p style='font-size:20px; '><b>" Computer Proficiency For Office "</b> is a  skill enhancement course of duration Three Month in order to Educate every students about Computer Science with a course completion certificate, in order to made a Digitally Literate India. <br> Want to Reserve your Seat! Fill up the Registration Form and Subscribe Now. </p> 
+        
+    <p style='font-size:20px; '>  Learnincreation Geeks in collaboration with Sardar Bhagat Singh Government Post Graduate College, Kumaun University, U.S.Nagar, Uttarakhand Organising a Free Three Month Professional Certification course, 
+        Registrations are open for a week, to participate in Workshop - </p>
+	<hr>
+	<p> Enroll your seat for  3 month professional certification course "Computer Proficiency For Office" under a program "Digital Literacy in India" 
+    from Learnincreation <br> <b> #PadegaIndiaTabhiToBadegaIndia</b> 
+    </p>     
+        
+ 		</div>
+    </div>
+  	<div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/img/7.png' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+  
+     <hr>
+   <!-- Header section -->
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row shadow" style="margin-bottom:10px; margin-top-30px;" >   
+        	  <div class= " col-sm-5 md-5 lg-5 " style=" margin:auto; padding:30px;">
+               	  <img class="rounded mx-auto d-block"
+                       src="{% static 'landing/design/3.png' %}" style="width:300px; height:300px; margin:auto; padding:auto; " alt = "DIGITAL LITERACY IN INDA" > 
+              
+                 <!-- <img  src="{% static 'landing/images/subscribe.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">  -->    
+               </div>
+        
+               <div class= " col-sm-5 md-5 lg-5 " style=" margin:auto; padding:50px;">
+               
+                      <form method="post" >
+                          <fieldset>
+                            <legend> Subscribe for Seminar, Workshop or free session, <span style="color: orange; font-weight:normal;">  so that you will get updates from Learnincreation !! </span>  </legend>
+                              {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-primary mt-5" type="submit">Subscribe Now </button>
+                            </fieldset>
+                          <br>
+                        </form> 
+                   
+                  </div>
+        </div>
+   
+    <hr>
+<!--
+  		<div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/pg-seminar.jpg' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+
+    <hr>
+    
+  		<div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/four.png' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+	
+    <hr>
+    
+    
+  		<div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/previous-seminar.jpg' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+<hr>
+    <div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/five.png' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+    <hr>
+    <div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/six.png' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+	
+	
+    <hr>
+-->
+    <p style='margin-top:50px; font-weight:bold;'> Be connected with us on <a href='https://youtube.com/learnincreation' target='blank' style='text-decoration:none;'>Youtube,</a> or @TwitterHandle
+    <a href='https://twitter.com/Learnincreatio2' target='blank' style='text-decoration:none;'> Learnincreation Business</a>, 
+    <a href='https://twitter.com/leafnotion' target='blank' style='text-decoration:none;'>Leafnotion</a>,
+    <a href='https://twitter.com/leafnotionS' target='blank' style='text-decoration:none;'>Leafnotion Support</a>,
+    <a href='https://twitter.com/thinkwithNotion' target='blank' style='text-decoration:none;'>Think with Leafnotion</a>,
+    <a href='https://amazon.com/author/vinaybhatt' target='blank' style='text-decoration:none;'>Amazon</a>.
+    </p>
+    
+    </div>                 
+    
+<div class="container-fluid">
+    		<div class="row">
+      			<img class="d-block w-100" src="{% static 'landing/design/7.png' %}" alt="Learnincreation-workshop-header">
+    		</div>    		
+  		</div>
+	
+   <!-- subscription Form section  end -->  
+
+   <!-- image-div-->
+      
+ <!-- text-div--> 
+
+
+{% endblock content %}

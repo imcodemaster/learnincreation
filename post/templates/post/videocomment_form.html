@@ -1,0 +1,55 @@
+{% extends 'landing/main.html'%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block meta %}
+<meta name="google-adsense-account" content="ca-pub-9133208017441567">
+{% endblock meta %}
+
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'home-info' %}">Home</a></li>
+          <li>Comment on Video's</li>
+        </ol>
+        <h2>Publish My Comment  -   </h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+        <section id="about" class="about">
+        	<div class = "row" >
+		
+			     	<div class="container mb-4 " style="margin-top: 100px;  width:100%; " >
+				    <div class="card center" >
+				      <div class="card-body shadow ">
+				          <div class="content-section border-bottom m-5">
+							<h1 style="text-transform: capitalize; font-weight: lighter; font-size: 15px;">Put My Comment on!! </h1>
+							<form method="post" enctype="multipart/form-data">
+								<div class="form-group">
+												{% csrf_token %}
+												{{ form.media }}
+											    {{ form|crispy }}
+											    <button class="btn btn-primary" type="submit">Post Comment </button>
+								</div>
+							</form>
+							  </div>
+							</div>
+							
+						 </div>
+			          </div>
+			      </div>
+
+			            
+			      </div>
+          </section>	
+
+
+{% endblock content %}

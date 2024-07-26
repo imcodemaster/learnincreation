@@ -1,0 +1,115 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %}
+ Security & Safety | Learnincreation
+{% endblock title%}
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+       <a class="nav-link " ></a>
+        <a class="nav-link  " ></a>
+        
+       
+       <span class="navbar-text">
+       Account Security & Safety
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+       <h7> Manage your own Account setting and don't forget to regulalry update your password from <a href="{% url 'setting' %}">setting</a> page.</h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/secure.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>    
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+    <!--faq section -->
+
+       <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:10px;;" >   
+                        <div class="col-12 m-2 p-2 m-2 p-2 ">
+                            <h2 class="section-title m-2 p-2"> How To be Safe and Secure ? </h2>
+                            <hr>
+
+                            <h3 class="m-2 p-2"> Question no 1 ? </h3>
+
+                            <p class="m-2 p-2">
+                             Answer of 1 
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2"> Question no 2  ? </h3>
+
+                            <p class="m-2 p-2">
+                              Answer of 2 
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2"> Question no 3  ? </h3>
+
+                            <p class="m-2 p-2">
+                              answer of 3
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2">Question no 4 ? </h3>
+
+                            <p class="m-2 p-2">
+                              answer of 4
+                            </p>
+
+                            <hr>
+
+                        
+                        </div>
+        </div>
+      </div>
+
+
+ </div> <!-- main body container end --> 
+
+
+{% endblock content %}

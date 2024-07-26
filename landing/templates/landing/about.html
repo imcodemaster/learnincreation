@@ -1,0 +1,155 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+
+<!-- title for page -->
+{% block title %}
+  A Bit About Learnincreation
+{% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+    <meta name="description" content="Learnincreation is a young and growing Internet Company located in India, 
+                                      serve with a mission of Empowering You Digitally , 
+									  we helps student to Learn Computer Science via
+									 Learnincreation Geeks , helps small business owner to grow
+ 									Digitally via Building Your Business Digital Presence on Internet, 
+									 and Leafnotion - A Social Networking Website where you can
+									 Be Social With Your Friend and People around the World,
+ 									can Share Your Notion, What's  happening.. ,
+									 stories or Video upto 100 mb. while Being Secure !">
+  <meta name="keywords" content="Learnincreation , computer courses, basic computer course, computer learning website, online learning, Social Media , About , Learnincreatoin Geeks, Learnincreation Business, Leafnotion, Social Networking Site, Website, Development">
+  <meta name="author" content="Learnincreation">
+{% endblock meta %}
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link active " aria-current="page" href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> <button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/17.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <p style="font-size:25px; padding:20px; margin-bottom:100px;">LearnInCreation is an Internet company, we are in a sector of Education Technology, also design and developed web application, to Digitalize your business via both static and dynamic websites.
+                   In LearnInCreation we always focused on building a valuable product to our customer in a medium of launching our product or building one for you as per your requirements. </p>     
+              <hr>
+               <p style="font-size:25px; padding:20px;"> We are celebrating our <strong> 4th anniversery </strong> as its was founded back in 2018, and in years of our journey we always focused on money valued product for our customer which match thier need and satisfaction.
+               </p>
+               </div>
+        </div>
+             
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/13.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 style="padding:20px; margin-bottom:100px;"> Learnincreation also helps in business </h1>
+                  <p style="font-size:25px; padding:20px; margin-bottom:100px;"> development via building websites/webapplication for your companies or organisations, our main foucsed is to encourage our small business owner and shop owner, to give them a clear 
+                        <span style="color:orange;"> <b>understanding about Website development works and how it can be helpful to take their shop Online to make them reach Globally.</b></span>  </p>      
+               </div>
+              <hr>
+        <p> Leafnotion.com on the other hand is a <b> Social Networking Website where you can
+        Be Social With Your Friend and People around the World,</b>
+ 									can Share Your Notion, What's  happening.. ,
+									 stories or Video upto 100 mb. while Being Secure ! <span style="color:orange; font-weight:bold;"> Share your Creation in your Social Circle. Log in Today !  </span> </p>
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+ 
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/1.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>  
+  
+   
+ 
+
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

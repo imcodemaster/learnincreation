@@ -1,0 +1,120 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+
+ {% block title %}
+      Enrolled Courses Library | Learnincreation Geeks
+ {% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+{% endblock meta %}
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link"   href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+          <!-- <a class="nav-link" href="#"> <button class="btn btn-primary p-1" style="font-size: 12px;" > Create Post </button></a> -->
+           <a class="nav-link" href="{% url 'geeks-coursearticle' %}"> <b> Course Lesson </b></a>
+
+           {% if user.is_superuser %}
+            <a class="nav-link" href="{% url 'course-create' %}"> <button class="btn btn-primary p-1" style="font-size: 12px;" > Create Course </button></a>
+             <a class="nav-link" href="{% url 'coursearticle-create' %}"><button class="btn btn-primary p-1" style="font-size: 12px;" > Create Lesson </button></a>
+             
+           {% endif %}
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div class="mt-5 ">
+                  <img  src="{% static 'landing/images/video/2.png' %}" style="width:inherit; height:auto; padding-top: 50px;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3"> Enrolled Courses <span style="color:orange; font-weight: bold;"> by {{user.username}} </span> </h1>
+          <hr>
+          
+          <div class="col-md-8 p-3">
+            {% for course in enrolled %}
+              <div class="card card-signin my-5 shadow p-4">
+                <button class="text-small text-white btn btn-success"> Your Enrolled Course </button>
+              <div class="card-body p-2 m-1">
+              <small>
+              <a href="{% url 'course-bookmark' course.id %}">
+            <button class="btn btn-danger p-1" style="font-size: 12px;"> Unmark This Course </button> </a>
+            </small>
+            <hr>
+                <h3 class="card-text text-dark ">{{ course.name }} </h3>
+
+                <small class="text-muted"> Posted on {{course.published_on}}</small>
+                <br>
+                 <img src="{{ course.snap.url }}" class="m-1 p-1" width="250" height="250" />
+                <br>
+                <h7> {{ course.tags }}</h7><br>
+                <h7> <small class="text-muted">Level - {{course.standard}} standard </small></h7>
+                <hr>
+        <p class="card-text text-dark ">
+         {{course.description}} <br> <hr>
+			<a href="{% url 'category' course.id %}"><button class="btn btn-primary active ">Course lesson</button></a>
+              </p>
+	
+              </div>
+            </div>
+            <hr>
+            {% endfor %}
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> My Collection </h2> <br>
+               <p class="card-text "><a class="text-white" href="{% url 'geeks-coursearticle' %}" style = "text-decoration:none;">  Course Lesson </a></p><hr>
+                <p class="card-text text-white"><a href="{% url 'video-bookmark-list' %}" class="text-white" style = "text-decoration:none;"> Saved Lesson</p><hr>
+                <p class="card-text "><a href="{% url 'save-list' %}" class="text-white" style = "text-decoration:none;">Quick Revision</a> </p><hr>
+                <p class="card-text "><a href="{% url 'lesson-bookmark-list' %}" class="text-white" style = "text-decoration:none;"> Saved Notes </a></p><hr>
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

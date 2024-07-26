@@ -1,0 +1,178 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+{% block title %}
+ Build Your Business Profile | Learnincreation BusinessPlace
+{% endblock title%}
+
+
+ meta tags for seo
+{% block meta %}
+    <meta name="description" content=" Claim ! Your Free Guide 'Online Fundamental Business Guide' and help your business to grow. In Learnincreation, We serve with a mission of Empowering You Digitally,
+ 										via helping you to 'Build Your Business Digital Presence' with LearnInCreation Business and build your Business Website, Brand Logo and much more, Sign Up Today ! ">
+  <meta name="keywords" content=" Website , Website developement, Social Media Marketing, Logo Making, Logo Service, website hosting, website domain, domain, godaddy, hosting company, website company, indian social media, india social media platform , social media platform  , Build Your Business , Learnincreation Business , Online Business, Business Profile, computer learning website, online learning, learnincreation geeks, online business , how to do, build,">
+  <meta name="author" content="Learnincreation Business">
+{% endblock meta %}
+
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+       <a class="nav-link " href="{% url 'geeks-home'%}" ><button class="bg-primary active text-white shadow-sm">Learn </button> </a>
+        <a class="nav-link " href="{% url 'contact'%}" ><button class="bg-secondary active text-white shadow-sm">Get Quote</button> </a>
+        
+        
+       
+       <span class="navbar-text">
+       Learnincreation BusinessPlace
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+        <h7><a href="{% url 'faq' %}">Read question related to Learnincreation BusinessPlace</a> - How can you build your Business Profile and also get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" > 
+          <div>  
+            <img  src="{% static 'landing/images/business-header.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image"  />      
+          </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container mt-3" style="margin:auto; padding:auto;">    
+        <div class="row " style="margin-bottom:10px;;" >   
+            <div class= "col-sm-10 md-10 lg-10 text-dark" style=" margin-top:10px; padding:auto;">
+                 <h1 class="m-1 p-1"> Build Your Business Profile <span style="color: orange;">  On Learnincreation Business Place </span> </h1>
+                 <br><br>
+                  <p style="font-size:30px;" class=" text-dark m-1 p-1">Your Shop can't Move, <br><span class="text-primary"> But you can take smart Move ! </span> </p>     
+            </div>
+        </div>
+           
+    </div>
+  
+   <!-- Header section end -->
+  <hr> 
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/business-profile.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                    <h1 class="m-1 p-2"> Go Global With Your <span style="color:orange;"> Product & Service </span> </h1>
+                    <br><br>
+                    <h3 class="m-1 p-2">Understanding about - How Website can help to break the Business Barrier and unlock your reach to the potential customer ?  can help you to <span class="text-primary"> Build your Global Brand. </span>  </h3> 
+                  <hr>
+                      
+               </div>
+            
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+ 
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/business-profile-need.png' %}" style="width:inherit; height:auto; padding: 20px;" alt="learnincreation-banner-image">      
+               </div>
+               <hr>
+                <p class="m-1 p-2" style="font-size: 20px;">
+                   Want to Build <a href="{% url 'subscribe' %}"> Business Profile</a> for your Shop, Office or Business ?
+                   </p> 
+              <hr>
+        </div>
+    </div>  
+  
+   
+    <div class="container mt-3" style="margin:auto; padding:auto;">    
+        <div class="row " style="margin-bottom:10px;;" >   
+               <div class= "col-sm-10 md-10 lg-10 text-dark" style=" margin-top:10px; padding:auto;">
+                 <h1 class="p-1 text-danger" style="margin-top: 70px; font-weight: bold;">Your Brand Logo is Your Brand Message  </h1>
+
+                  <p style="font-size:30px; margin-top: 100px;" class=" text-dark p-1"> Your Brand or Business Logo speak more about your Business than your Business Manager does,<br><br><span class="text-primary"> Before investing on Business Manager, Invest on Business Logo !   </span> </p>     
+               </div>
+        </div>
+            <hr> 
+        </div>
+
+   
+   <div class="container mt-5" style="margin:auto; padding:auto;">
+        <div class="row mb-5" >   
+               <div>
+                  <img  src="{% static 'landing/images/logo-business-profile.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+
+    
+ <!-- text-div--> 
+
+  
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+                <p class="m-1 p-2" style="font-size: 20px;">
+                   Are you looking <a href="{% url 'contact' %}"> Business Logo </a> for your Shop, Office or Business ?  
+                   </p> 
+        </div>
+    </div>  
+  
+    
+    <div class="container-fluid mt-2">
+      <div class="row">
+        <img src="{% static 'landing/img/businessplace.png' %}" alt="learnincreation business place for Enterprises">
+      </div>
+    </div>
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

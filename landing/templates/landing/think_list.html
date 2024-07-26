@@ -1,0 +1,101 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+{% block title %}
+    Direct From Office | Learnincreation 
+{% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Get update with our notice, announcement, upcoming events Direct from Office. Learnincreation is a young
+ and growing Internet Company located in India,
+ serve with a mission of Empowering You Digitally , from Learnincreation.   ">
+  <meta name="keywords" content="Learnincreation Notice, Announcement ,  Learnincreation Newsletter , e books , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link active "  aria-current="page"  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> <button class='btn btn-sm shadow-sm btn-primary active '> Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div class="mt-5 ">
+                  <img  src="{% static 'landing/images/think.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3">Direct From Office <span style="color:orange; font-weight: bold;"> - Learnincreation </span> </h1>
+          <div class="col-md-8 p-3">
+            {% for think in think_list %}
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body">
+                <a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ think.author }}</b></a>
+                <br><small class="text-muted">Posted on {{ think.published }}</small>
+                <br><br>
+                <p class="card-text text-dark">{{ think.title }}</p>
+              </div>
+            </div>
+            <hr>
+            {% endfor %}
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h4> Explore More on </h4> <br>
+                <p class="card-text text-white"> <a href='http://learnincreation.co.in/explore/' target='_blank' style='text-decoration:none; color:white;'> Learnincreation Doodle </p> <hr>
+                <p class="card-text text-white"> <a href='http://learnincreation.co.in/geeks-for-students/home/' target='_blank' style='text-decoration:none; color:white;'> Learnincreation Geeks</p><hr>
+                <p class="card-text text-white"><a href='http://learnincreation.co.in/build-business-profile/' target='_blank' style='text-decoration:none; color:white;'>  Learnincreation Business</p><hr>
+              <p class="card-text text-white"> <a href='http://leafnotion.com/' target='_blank' style='text-decoration:none; color:white;'> Leafnotion </a> </p> <hr>
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

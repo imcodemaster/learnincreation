@@ -1,0 +1,163 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+  Account Setting | Learnincreation
+{% endblock title%}
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+      <a class="nav-link"  href="{% url 'geeks-home' %}">Home</a>
+        <a class="nav-link " href="{% url 'pathway' %}">Pathway</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'geeks-courses' %}">Courses</a>
+        <a class="nav-link"   href="{% url 'geeks-question' %}">Q/A Series </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        
+       <a class="nav-link" href="{% url 'profile' user.profile.pk %}"> <button class="btn btn-primary p-1" style="font-size: 12px;" > Profile </button></a>
+
+       <a class="nav-link " href="{% url 'logout'%}"> 
+        <button class="btn btn-danger p-1 " style="font-size: 10px;"> Sign out </button></a>
+        
+       
+       <span class="navbar-text p-2" >
+       Account Settings
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Manage your own Account setting and don't forget to regulalry update your password for securities reasons.</h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/account-setting.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container mt-5 mb-3" style="margin:auto; padding:auto;">    
+        <div class="row" >   
+              <div class="page-header">
+                 <h1>Account Settings <br> <small class="text-dark " style="font-size:25px;"> we are developing a quick securities guide</a> to manage or secure your account  with more ease. | Dear  {{ user.username}} ,</small></h1>
+             </div>
+        
+            <!-- <div class="col-sm-6 md-6 lg-6 mt-5">
+              <div class="jumbotron shadow p-5">
+                <h1>Change Password</h1>
+                <p>Want to Change your Account Password ! </p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button"> Change password</a></p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 md-6 lg-6 mt-5">
+                <div class="jumbotron shadow p-5">
+                <h1>Forget Password</h1>
+                <p>Or, you forget your Account Password ! </p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button"> Forget Password</a></p>
+              </div>
+
+             </div>
+        -->
+      </div>   
+    </div>
+  
+   <!-- Header section end -->
+ 
+    <div class="container mt-5 mb-3" style="margin:auto; padding:auto;">    
+        <div class="row" >   
+              <div class="page-header">
+                 <h1>Course and Community </h1>
+             </div>
+        <hr>
+             <div class="col-sm-6 md-6 lg-6 mt-5">
+              <div class="jumbotron shadow p-5">
+                <h1>Enrolled Course </h1>
+                <p>List of Course Enrolled by you ! </p>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'course-bookmark-list' %}" role="button"> My Courses</a></p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 md-6 lg-6 mt-5">
+                <div class="jumbotron shadow p-5">
+                <h1>Watch Lesson</h1>
+                <p>Watch your saved course video lesson Library </p>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'video-bookmark-list' %}" role="button"> Saved Lesson</a></p>
+              </div>
+
+             </div>
+        
+      </div>   
+    </div>
+
+
+      <div class="container mt-5 mb-3" style="margin:auto; padding:auto;">    
+        <div class="row" >   
+              <div class="page-header">
+                 <h1>Learning Material </h1>
+             </div>
+        <hr>
+             <div class="col-sm-6 md-6 lg-6 mt-5">
+              <div class="jumbotron shadow p-5">
+                <h1>Saved Notes</h1>
+                <p>All your saved notes are here to manage.</p>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'lesson-bookmark-list' %}" role="button"> Saved Notes </a></p>
+              </div>
+            </div>
+
+            <div class="col-sm-6 md-6 lg-6 mt-5">
+                <div class="jumbotron shadow p-5">
+                <h1>Quick Revision</h1>
+                <p>Or, you want to quickly revise your bookmark items! </p>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'save-list' %}" role="button"> Quick Revision</a></p>
+              </div>
+
+             </div>
+        
+      </div>   
+    </div> 
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

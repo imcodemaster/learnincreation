@@ -1,0 +1,83 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+{% block meta %}
+ <meta name="google-adsense-account" content="ca-pub-9133208017441567">
+{% endblock meta %}
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+    
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+       <a class="nav-link " href="{% url 'geeks-blog'%}" > <button class="btn btn-primary p-1"> Digital Marketing </button></a>
+        
+        
+       
+       <span class="navbar-text">
+       Build Your Business Profile
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3 mt-5"> Business <span style="color:orange; font-weight: bold;">Profile  </span> </h1>
+          <div class="col-md-8 p-3">
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+                <h5>Sector - {{businessprofile.sector }}</h5>
+                <small class="text-muted"> Posted on {{businessprofile.date}}</small>
+                <br>
+                 <img src="{{ businessprofile.snap.url }}" class="rounded-circle" width="100" height="100" />
+                <h3 class="card-text text-dark ">{{ businessprofile.business_name }} </h3><h4> <small class="text-muted">email - {{businessprofile.email}}</small></h4>
+        <p class="card-text text-dark ">
+         {{businessprofile.description}} 
+         <br>
+         <hr>
+         {{businessprofile.mobile}}
+         <br> 
+          
+          <a href="{% url 'business-profile-update' businessprofile.pk %}">  Update </a>
+          <a href="{% url 'business-profile-delete' businessprofile.pk %}">  Delete </a>
+         <br><br>
+        <button class="btn btn-outline-primary"> Enroll </button></p>
+
+              </div>
+            </div>
+            <hr>
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Explore More on </h2> <br>
+                <p class="card-text text-white"> Learnincreation </p> <hr>
+                <p class="card-text text-white"> Learnincreation Geeks</p><hr>
+                <p class="card-text text-white"> Learnincreation Business</p><hr>
+                <p class="card-text text-white"> Learnincreation Pictures</p> <hr>
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

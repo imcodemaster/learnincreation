@@ -1,0 +1,45 @@
+{% extends 'landing/main.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- 
+<style type="text/css">
+	body{
+		 background-color: 
+		 height: 700px; width: 100%;
+		 background-position: center; /* Center the image */
+		 background-repeat: no-repeat; /* Do not repeat the image */
+		 background-size: cover; /* Resize the background image to cover the entire container */
+			}
+</style>
+-->
+
+
+<style type="text/css">
+	body {
+  background: -webkit-linear-gradient(left, #7577FA 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+  background: linear-gradient(90deg, #7577FA 20px, transparent 1%) center, linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+  background-size: 22px 22px;
+}
+
+</style>
+
+
+	 <div class="container mb-4 " style="margin-top: 100px;  width:100%; " >
+	    <div class="card center" >
+	      <div class="card-body shadow ">
+	          <div class="content-section border-bottom m-5">
+				<h1 style="text-transform: capitalize; font-weight: bolder; font-size: 15px;">Share Your Notion !! </h1>
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form.media }}
+				    {{ form| crispy }}
+				    <p class="row m-2 p-2">
+				    <button class="btn btn-primary btn-lg btn-block" type="submit"> Post Your Doodle  </button> </p>
+				</form>
+				<br>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}

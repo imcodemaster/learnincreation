@@ -1,0 +1,207 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+
+<!-- title for page -->
+{% block title %}
+  Cyber Security Awareness Program | #BeCyberSmart from Learnincreation
+{% endblock title %}
+
+<!-- meta tags for seo -->
+{% block meta %}
+    <meta name="description" content="Govt Organized a Cyber Awareness Program - #DoYourPartBeCyberSmart, We understand the importance of Cyber Awareness and hence we take this initiate Cyber Security Awareness Program - Presented By Learnincreation Geeks">
+  <meta name="keywords" content="Learnincreation , cyber security courses, cyber punk, becybersmart , be cyber smart, online learning, Social Media , About , Learnincreatoin Geeks, Learnincreation Business, Leafnotion, Social Networking Site, Website, Development">
+  <meta name="author" content="Learnincreation">
+{% endblock meta %}
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link active " aria-current="page" href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+      <a class="nav-link text-primary " href="{% url 'login' %}"><button class='btn btn-sm shadow-sm btn-primary active '> Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+    <h7> Watch all episode of Cyber Security Awarenss Program <b>#BeCyberSmart</b> only on <a href="https://www.youtube.com/watch?v=aPrbf8D7K_w&list=PLalqGyNDu2udZumXJnGejqtp-TuJuH2mJ" target='--blank'> <button class='btn btn-danger btn-sm shadow text-white '> Youtube
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+</svg>
+      </button></a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/design/becybersmart.gif' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <p style="font-size:25px; padding:20px; margin-bottom:100px;">Govt Organized a Cyber Awareness Program - <b>#DoYourPartBeCyberSmart</b>, We understand the importance of Cyber Awareness and hence we take this initiate Cyber Security Awareness Program - Presented By Learnincreation Geeks
+#BeCyberSmart</p>     
+              <hr>
+               <p style="font-size:25px; padding:20px;"> We are contributing our hands on this Cyber Awareness Program  <strong> #DoYourPartBeCyberSmart </strong> are you contributing yours ?
+               </p>
+               </div>
+        </div>
+             
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/design/smartpic.png' %}" style="width:inherit; height:auto;"  alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 style="padding:20px; margin-bottom:30px;" class='text-primary'> Be A Cyber Smart User 
+               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill-check" viewBox="0 0 16 16">
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+  <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+</svg>
+               </h1>
+                  <p style="font-size:25px; padding:20px; margin-bottom:30px;" >  Be Safe While Surfing Internet, 
+                        <span style="color:orange;"> <b>Be A Smart Social User on</b></span> Leafnotion.com a <b> Social Networking Website where you can
+        Be Social With Your Friend and People around the World,</b>
+ 									can Share Your Notion, What's  happening.. ,
+									 stories or Video upto 100 mb. while Being Secure ! <span style="color:orange; font-weight:bold;"> Share your Creation in your Social Circle. Log in Today !  </span>      
+              <br> <br> <a href='http://leafnotion.com'><button class='btn btn-primary active shadow-sm '> Sign Up  </button></a> </p>
+        </div>
+              <hr>
+ 
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+ 
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >  
+        <h3 class='text-danger'> Watch Recent Lesson on  
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+</svg>
+        </h3>
+               <div>
+ <!-- container of card - follewed by image inside a row -->
+               <div class="card-group m-3 p-2">
+  <div class="card m-2 shadow">
+    <img class="card-img-top" src="{% static 'landing/cyber-safety-1.jpg' %}" alt="Cyber Safety Awareness Program">
+    <div class="card-body">
+      <h5 class="card-title">Cyber Safety With Mobile.</h5>
+      <p class="card-text">Your Mobile has personal and sensitive data of your's activity, Treat it like your Wife.</p>
+    <p class="card-text"><small class="text-muted"><a href='https://www.youtube.com/watch?v=ER7LUvxS8XI&list=PLalqGyNDu2udZumXJnGejqtp-TuJuH2mJ&index=13' target='--blank'>
+    <button class='btn btn-danger btn-sm shadow text-white '> Watch Video
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+</svg>
+      </button>
+    </a></small></p>
+    </div>
+  </div>
+  <div class="card m-2 shadow">
+    <img class="card-img-top" src="{% static 'landing/cyber-safety-2.jpg' %}" alt="Cyber Safety Awareness Program">
+    <div class="card-body">
+      <h5 class="card-title">Cyber Safety While Banking.</h5>
+      <p class="card-text">QR Code is for scan and send money ! You dont recieve money via scanning of QR.</p>
+      <p class="card-text"><small class="text-muted">
+      <a href='https://www.youtube.com/watch?v=kmG_b_2tlu0&list=PLalqGyNDu2udZumXJnGejqtp-TuJuH2mJ&index=12' target='--blank'>
+      <button class='btn btn-danger btn-sm shadow text-white '> Watch Video
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+</svg>
+      </button> </a></small></p>
+    </div>
+  </div>
+  <div class="card m-2 shadow">
+    <img class="card-img-top" src="{% static 'landing/cyber-safety-3.jpg' %}" alt="Cyber Safety Awareness Program">
+    <div class="card-body">
+      <h5 class="card-title">Things you should know about</h5>
+      <p class="card-text">To be safe from cyber crime, you must aware about it. Be Safe While Surfing.</p>
+      <p class="card-text"><small class="text-muted"><a href='https://www.youtube.com/watch?v=eU8Xo5rG-bc&list=PLalqGyNDu2udZumXJnGejqtp-TuJuH2mJ&index=15' target='--blank'> <button class='btn btn-danger btn-sm shadow text-white '> Watch Video
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+</svg>
+      </button> </a></small></p>
+    </div>
+  </div>
+</div>
+                                 <img  src="{% static 'landing/img/1.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+        </div>
+        
+        
+        </div>
+    </div>  
+  
+   
+ 
+
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

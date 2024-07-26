@@ -1,0 +1,197 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+
+{% block title %}
+
+   Frequently Asked Question | Learnincreation
+
+{% endblock title%}
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Frequently Asked Question you may have with our website, products, app or services. If you didnt find your question here you can reach us simply by mail us on our mail address, Or you can join our community on Facebook , Instagram and can follow us on Twitter !
+We love to hear You and Your Feedback ! ">
+  <meta name="keywords" content="Learnincreation FAQ , faq ,contact us, basic computer course, computer learning website, online learning , share your knowledge , education campaign">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"><button class='btn btn-sm shadow-sm btn-primary active '>  Sign in</button> </a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/faq.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>    
+   <!-- Header section end -->
+   
+   <!--faq section -->
+
+       <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:10px;;" >   
+                        <div class="col-12 m-2 p-2 m-2 p-2 ">
+                            <h2 class="section-title m-2 p-2"> Frequestly Asked Questions </h2>
+                            <hr>
+
+                            <h3 class="m-2 p-2"> What is Digital Business Profile ? </h3>
+
+                            <p class="m-2 p-2">
+                             Like every business, your business also need a profile in Digital Media to show or represnt your business to others, in order to find potential customer and engage them with your Brand Message in order to sell your service & products. <br> That's what a Business Profile does business. <hr>
+                             Now, if you want to build your Business Profile ! Start with Learnincreation Digital Business Profile     
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2"> How does Digital Business Profile helps me to reach out more customer ? </h3>
+
+                            <p class="m-2 p-2">
+                              Think, what if you find out a girl, but unable to find a nearest restaurent !! <br>
+                              Same conditional experience, will be recognized by every customer, when they are are seeking for service.
+                            In this condition, your Digital Business Profile can help your customer to 
+                            find out and able to reach at your shopfront, which will turns your potential customer to your promising customer.
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2"> How much Digital Business Presence cost ? </h3>
+
+                            <p class="m-2 p-2">
+                              In Learnincreation, we always focused to Empowering You and Your Business, with <strong>Learnincreation Business</strong> <i>you can <b>start with just 25 INR/day (CAC)</b> and will build your Business Brand global.</i> 
+                            </p>
+
+                            <hr>
+
+                             <h3 class="m-2 p-2">Should I use Digital Business Profile, if I already have a Business Website ?  </h3>
+
+                            <p class="m-2 p-2">
+                              If you already have a Business Website then you primilary not required to have Business profile, but again every sweet has its own taste.
+                            </p>
+
+                            <hr>
+
+
+                             <h3 class="m-2 p-2">Can I still use Digital Business Profile, if I don't have Shop front ?  </h3>
+
+                            <p class="m-2 p-2">
+                              Yes, you can able to build your Busienss Profile as far as you are not faking your business in a digital world, and serve a genuiene service.  However every business profile should be verified and authentic.                          </p>
+
+                            <hr>
+
+
+                            <h3 class="m-2 p-2"> How can I Launch my Website ? </h3>
+                            <p class="m-2 p-2"> You just need to know about three things before going to launch a website. A Domain Name (www.yourcompany.com - Your online name address),
+
+                            A Website (An application which welcome your customer andprovide them an info about your business and services ) &
+
+                            A Hosting Service ( Hosting refers to a computer where your website is keep runing so that anyone from anywhere in a world can access it with Your Domain Name.) </p>
+
+                            <hr>
+
+                            <h3 class="m-2 p-2"> How much it cost to launch a Webstie ? </h3>
+                            <p class="m-2 p-2">
+                              Website has many function and purpose based on your Business, you can start with Standard Static website & can go to big e-commmerce website or as per your requirement to aware your potential customer about your business.
+
+                              We suggest you to learn more about Start Plus + program (A Complete Yearly Package for StartUp or Small business) as its was for good start to understand all things worked !! 
+                            </p>
+
+                            <hr>
+
+                            <h3 class="m-2 p-2"> What benefits comes with StartPlus + Program ? </h3>
+
+                            <p class="m-2 p-2">
+                              StartPlus + programm is a complete customizable company portfolio website for small business or StartUp to start with their Online presences for a year with all required packages including (Domain name, Website , Hosting for a year and also along with 1-Year Full Technology and Maintaince Support & Service  ) <b> only @ 9025/-INR.</b> A Product By LearnInCreation to encourage our Small business owner and StartUp. 
+                            </p>
+
+                            <hr>
+                        </div>
+        </div>
+      </div>
+
+
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/faq-2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+
+               <div>
+                <hr>
+                     <h5 class="m-2 p-2">
+                              Have more question or queries in mind ? Write straight to  <a href="mailto:info@learnincreation.co.in"> our inbox. </a>
+                            </h5>
+               </div>
+               <hr>
+        </div>
+    </div> 
+
+
+
+</div>
+
+
+   <!-- faq section end -->
+   
+   
+
+
+{% endblock content %}

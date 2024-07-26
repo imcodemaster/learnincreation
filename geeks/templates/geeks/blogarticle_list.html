@@ -1,0 +1,114 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+
+ {% block title %}
+     Digital Learning With Learnincreation Business
+ {% endblock title %}
+
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Learnicreation geeks - Digital Marketing Course, e-books library free accesible for students and computer learner who are looking for e-learning resources regarding computer courses.">
+  <meta name="keywords" content="Learnincreation E-book, Digital Marketing course ,  Learnincreation for Business , Library , e books library , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+       <a class="nav-link " href="{% url 'business'%}" > <b>Build Business Presence</b></a>
+       {% if user.is_superuser %}
+        <a class="nav-link " href = '{% url "blog-create"  %}' > <button class="btn btn-primary p-1">  Create Blog </button> </a>
+        {% endif %} 
+        
+       
+       <span class="navbar-text">
+       Build Your Business Profile
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container mt-5">
+        <div class="row pt-5">
+          <h1 class="p-3"> Digitalize Your Business <span style="color:orange; font-weight: bold;"> With Learnincreation Business </span> </h1>
+          <hr>
+          
+         
+          
+          <div class="col-md-8 p-3">
+            <h3>The Fundamentals <span class="text-primary"> You Know about </span></h3>
+            {% for blogarticle in blogarticle_list %}
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+                <h7>Related With - <b class="text-primary">{{ blogarticle.tags}}</b></h7><br>
+                <small class="text-muted"> Posted on {{blogarticle.published_on}}</small>
+                <hr>
+                <img src="{{ blogarticle.snap.url }}" class = "m-1 p-1"  width='250' height="250" />
+              <hr>
+             
+                <h3 class="card-text text-dark ">{{ blogarticle.title }} </h3>
+                <hr>
+                <h7> <small class="text-muted">Level - {{blogarticle.standard}}</small> <hr> Course - <b class="text-primary">{{blogarticle.course}}</b></h7> <hr>
+ 				
+              <p class="card-text text-dark ">
+
+         {{blogarticle.body}}
+         <hr> 
+ 				 <a href="{% url 'blog-detail' blogarticle.slug %}"><button class="btn btn-outline-primary"> Read Full Lesson</button></a> </p>
+
+              </div>
+            </div>
+            <hr>
+            {% endfor %}
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Build your Business Profile  </h2> <br>
+                <p class="card-text text-white"> Learn Why every business have a Online Presence of their Business Profile and How Business Profile in Digital Media helps your business to grow and reached out to more potential customer for your service.   </p> 
+              <hr>
+              
+                 {% if user.is_authenticated %}
+              <small class="m-1 p-2">Download Your - <a  class = "text-white" href="{% static 'landing/guides/digital-marketing-course-brochure.pdf' %}" download> <span style="text-decoration:none;">'Digital Marketing  Course Brochure'</span> </a> </small>
+              <hr>
+              {% else %}
+        <small class="m-1 p-2"> <a href= "{% url 'login' %}" class = "text-white"> Want to Download </a> - 'Digital Marketing  Course Brochure' </small>
+
+              {% endif %}
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

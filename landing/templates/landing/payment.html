@@ -1,0 +1,307 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+
+
+
+ {% block title %}
+    Payment & Pricing | Learnincreation
+ {% endblock title %}
+
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= "We beleive in customer delightness, you may be beleive in better service. Pay us digitally with your mobile and with ease.">
+  <meta name="keywords" content="Learnincreation Payment , and Pricing , contact us, basic computer course, computer learning website, online learning , share your knowledge , education campaign">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  </div>
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div class="col-sm-5 md-5 lg-5">
+                   <div>
+                  <img  src="{% static 'landing/img/17.png' %}" style="width:inherit; height:400px;" alt="learnincreation-banner-image">      
+               </div>
+               </div>
+               <div class="col-sm-5 md-5 lg-5 ">
+                  <h1 style="float:right; margin-top:120px; font-size:60px;"> <span style="color:orange;"> Pay </span> Securely ! <span style="color:orange;"> Pay </span> With Ease ! </h1> 
+                  <p> <a href="#payment"><button class="btn btn-dark p-2 mt-5 text-white"> Pay To Learnincreation </button> </a> </p>     
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 class=" padding:40px; float:center;"><strong>Learnincreation Products Pricing <span style="color:orange;"> & Payment </span></strong></h1>      
+               </div>
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+  <!-- New Secrtion -->
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin:auto; padding:auto;">
+                 <!-- <h2> <span style="color:orange;">Build Your</span> Business Online Presence </h2> -->
+                  <p style="font-size:30px; padding:40px; text-align:right;"> Build Your Business Online Presence and  
+                   <br><span style="color:orange; font-size:30px; font-weight: bold;" > Reach to more potential customers <br> around the Globe.</span> <br>     
+             {% if user.is_authenticated %}
+              <small class="m-1 p-2"> Download  <a href="{% static 'landing/guides/Learnincreation-brochure.pdf' %}" download> <span style="text-decoration:none;"> Our Brochure</span> </a> </small>
+              <hr>
+              {% else %}
+        <small class="m-1 p-2"> <a href= "{% url 'login' %}" > Want to Download </a> our Brochure </small>
+
+              {% endif %}
+               
+     
+               </div>
+            
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+   
+   
+   
+   <!--  Start PLus + Product  Section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/design/2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+      <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">Start With </span> StartPlus + </h2>
+                  <p style="font-size:20px; padding:40px; float:center;"> A Product from LearnInCreation for new StartUp, small business to <strong>"Go Online with their Business"</strong> 
+                  with Full Year maintenance support and Package. So you can fly online with your business with better customer acquisitions. 
+                  
+                  <span style="font-size:20px; padding:10px; float:left; font-size:30px; color:blue;">" Start <b> With StartPlus+ @ just 55/- INR per day." </b> </span>
+                  <br>
+                   <span style="color:orange; font-size:24px;"> <br><br> <i>Also, on addition we also help businesses in building their 
+                   Social Media Representation (Business Presence) by creating marketing content for their Social Media,  or helping them to build better customer interactions/acquisition in Online Market.</i></span> <br> 
+                  <br>Connect with us, <b> to build your Business Portfolio starting @ just 999/- INR. </b> Learn more about our monthly packages.
+                  <br>
+                  <br> <a href="{% url 'contact' %}"><button class="btn btn-primary p-2" style="float:right; margin-bottom:40px;" > Connect to Know More </button> </a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>
+   
+   <!--  Start PLus + Product Section End -->
+   
+   <!--  BeDigital Product  Section -->
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/20.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+  <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">BeDigital</span> - Tranform the way of Learning</h2>
+                  <p style="font-size:20px; padding:40px; float:center;"> BeDigital is A programm by LearnInCreation to transform your School/ Institute / Coaching into an Online Learing Portal to prepare the better 
+                  learning envoiurment for your school ecosystem where 
+                  <span style="color:orange;"> <b>" Teacher and Student get engaged and intract in a more connective method. " </b></span> 
+                  <br><br> <span style="font-size:20px; padding:10px; float:left; font-size:30px; color:blue;">" Teach Digital <b> With Be Digital @ just 149/-INR per day." </b> </span>      
+                   <br><br><a href="{% url 'contact' %}"><button class="btn btn-primary p-2" style="float:right; margin-bottom:40px;" > Connect to Know More </button> </a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>   
+    
+   <!--  BeDigital Product Section End --> 
+ 
+
+   <!--  Digital-X Product  Section -->
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/24.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+  <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">Digital-X</span> - Website For Every Business </h2>
+                  <p style="font-size:20px; padding:40px; float:center;">In learnincreation, we always focused on Empowering You & Digital- X is a product of our deep research and understanding on small/medium business & resolving problem faces by business owner & their needs. As a result we in Learnincreation , designed Digital-X and tried to digitalize your business , that's gives you more control, 
+                  along with digital wings to fly high with  your Business Brand. Digial-X  is a compelete Dynamic Website package (built  in Python ,Django web technologies) including Hosting service and Domain registration for small company , shops , business , organisation , NGO , startup and for every kind of Business & comes with 6  month maintenance and support. </p>
+                    <p style="font-size:20px; padding:40px; float:center;"> <span style="font-size:20px; padding:10px; float:left; font-size:30px; color:blue;"> Build Digital Presence of Your <b>" Business With Digital-X @ just  99/- INR per day." </b> </span>      
+                  <br><br>  <a href="{% url 'contact' %}"><button class="btn btn-primary p-2" style="float:right; margin-bottom:40px;" > Connect to Know More </button> </a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>   
+    
+   <!-- Digital-X Product Section End --> 
+ 
+
+    <div class="container" id="payment" style="margin:auto; padding:auto;">
+     <!-- image here or section -->
+    </div> 
+
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+            <div>
+            <h1 style="font-size:50px; margin:50px; padding:auto; text-align:center; font-weight: bold;" > Pay <span style="color:orange;"> From Anywhere </span> </h1>
+            </div> 
+               
+        <div class="col-sm-12 md-10 lg-10 ">
+                   <div style="padding:10px;">
+                      <h1 style="float:center; margin-top:20px; font-size:65px; padding:auto"> <span style="color:orange;"> Scan  </span> QR Code & <span style="color:orange;"> Pay </span> Securely ! </h1> 
+                    <br><p class="p-2 text-dark" style = "font-size:12px;">
+                  ** Save money with Direct Bank Transfer, Ask us How ?
+                   <br>** Before you do Transaction, make sure you had a invoice from Learnincreation or had a words with our Customer Department Executive - <hr><span style="font-weight: bold; font-size:22px;">Mr. Chintoo Chhabra </span> </p>     
+                      <br><p> <a href="{% url 'contact' %}"><button class="btn btn-dark p-2 text-white"> Having Issue In Transaction ? </button> </a> </p>
+
+               <div class="accordion-item" style = " font-size : 15px;">
+    			<h2 class="accordion-header" id="headingTwo">
+      				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        				Pay with ease - EMI option
+      				</button>
+    			</h2>
+    		
+            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      			<div class="accordion-body">
+        			<strong>Thinking about other paying option with ease ? </strong> <br> Connect with us to know more about monthly EMI options available   on our products and service,  <hr>
+                <code style = " font-size : 10px;"> No cost EMI available. Inclusive of all taxes. </code>
+      			</div>
+    		</div>
+  		</div>
+               
+               <div class="accordion" id="accordionExample">
+  					<div class="accordion-item">
+    					<h2 class="accordion-header" id="headingOne">
+      						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+       							 Direct Bank Transfer
+      						</button>
+    					</h2>
+    			
+                    
+    	              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      					<div class="accordion-body">
+        					<strong>Pay us directly via Bank Transfer, details are mentioned : </strong> <hr>
+                        <code style = " font-size : 10px;">
+                        State Bank Of India (SIDCUL Branch , Rudrapur) <hr>
+                        Account Number : 40716434256 <br>
+                        IFSC code : SBIN0010496 <br>
+                        
+                        </code> 
+      					</div>
+    				</div>
+  			</div>
+  
+
+ 		
+               <div class="accordion-item">
+    			<h2 class="accordion-header" id="headingThree">
+      					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    		    		Paying with UPI	
+     				 </button>
+    			</h2>
+    			
+               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      			<div class="accordion-body">
+        		<strong>Pay us digitally, directly from your mobile from any UPI application </strong>
+                <hr>
+                <code style="font-size:10px;">GPay UPI : vinaybhatt0210-1@oksbi (Learnincreation for you)
+                Or scan our QR code from your mobile  (QR scanner) <br>
+                <b>Paytm QR scan : </b> Chintoo Chhabra</code> <hr>
+                 <img  src="{% static 'landing/img/qr-code-payment.jpg' %}" style="width:inherit; height:400px; margin:auto; float:center;" alt="learnincreation-banner-image">
+     		 </div>
+    		</div>
+ 		 </div>
+	</div>
+                   </div>
+               </div>
+        </div>
+    </div>
+    
+     
+</div> <!-- main body container end --> 
+
+
+
+{% endblock content %}

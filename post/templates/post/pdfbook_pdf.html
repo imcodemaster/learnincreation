@@ -1,0 +1,86 @@
+  <main id="main">
+
+  <h3>Learning is Good , But Sharing is Best ! </h3>
+  <h4>Share Your Knowledge with Other Student and Publish Your Notes Globally ! </h4>
+  <h6> @ Learnincreation Geeks </h6>
+  
+  
+  
+  {% for post in pdfbook %}
+        <!-- ======= Breadcrumbs ======= -->
+   <section class="jumbotron" style="margin-top: 10px;">
+      <div class="container mt-1">
+        <div class="row m-5 ">
+        <div class="col-md-6 sm-4 d-flex justify-content-between align-items-center">
+
+     <h1 style="font-size: 22px;  text-align: center; font-family: Roboto;">You Did a Great Job ! {{post.author.first_name}} {{post.author.last_name}} </h1>
+          <h5 style=" text-align: center;">Share Your Knowledge @ Learnincreation Geeks</h5>  
+        </div>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+
+
+<div class="container mt-1" style="margin-bottom: 500px;">
+  <div class="row " style="margin: 40px;">
+     <div class="card-body">
+  
+                        <!-- ======= About Section ======= -->
+    <section id="about" class="about mb-5 pb-5">
+      <div class="container">
+        <div class="row mb-5 ">
+          <div class="col-lg-6">
+
+          </div>
+          <div class="col-lg-6 pt-1 pt-lg-0 content">
+          <h2>Subject - {{post.subject}}</h2>
+          <h5> Course - {{post.course}} | Semester -  {{post.semester}} | Realted Subjects -  {{post.subjects}}</h5>
+          <hr>
+          <h3> Note's Share by -  {{post.author}}</h3> 
+          <h6> Published on - {{post.published| date}}  </h6>
+            <br>
+        <span style = "font-size:14px;">    About - </span> 
+        <span style = "font-size:13px;">{{post.about}} </span>
+            <hr>
+             <span style = "font-size:14px;"> Paragraph - </span> 
+               <span style = "font-size:13px;">{{post.content}}</span>
+               
+          <hr>
+ <span style = "font-size:14px;"> Additional Paragraph - </span>
+              <span style = "font-size:13px;"> {{post.content_addition}}</span>
+               
+               <hr>
+<span style = "font-size:14px;">Keep in Mind - </span> 
+          <span style = "font-size:13px;"> {{post.highlight}}</span>              
+            
+          </div>
+          <hr>
+        </div>
+
+       <div class="row" style="font-size: 13px; text-align: center; font-family: Roboto;">
+       
+       <h6>Share Your Knowledge - </h6>      
+            <small>  Now Share your Own handly written article , notes  related to computer science or any other subjects with other students globally, in a click and spread learning with Learincreation Geeks and helps other to grow.
+            Learning New things is Good for You, but Sharing your learning is Good for Others and 
+            <b>Encourage Everyone to Engage with E-learning Environment</b> 
+            where not only you but everyone can learn with Notes your shared, 
+            <b>Shortly written , Self-prepared and Summarize.</b>
+            Share your Expertise, Knowledge upload your notes with Others and 
+            stay tuned with your "geeks mates" in order to Learn more and Spread Knowledge across the Globe. </small>
+      
+      <h5> From Learnincreation </h5>        
+    
+       </div>
+
+      </div>
+    </section><!-- End About Section --> 
+
+     {% endfor %}
+   </div>
+  </div>
+</div>
+       
+
+          </main>
+

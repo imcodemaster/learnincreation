@@ -1,0 +1,310 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+ {% block title %}
+    Products from Learnincreation
+ 
+ {% endblock title %}
+
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Download your Guide ! Just Sign Up. We not only designed Webportal for business but also helps our customer to know every details about how to grow in Online Market. We consult our audiences and helps them to go with best for their business.">
+  <meta name="keywords" content="Learnincreation Product, Privacy and Policy , policies , commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  " href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link active"  aria-current="page" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+      <a class="nav-link text-primary " href="{% url 'login' %}"><button class='btn btn-sm shadow-sm btn-primary active '>  Sign in </button></a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px; shadow">
+      <h7> Get your Online Fundamental Business Guide and help your business to grow. Subscribe for a free session <a href="{% url 'subscribe' %}">here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/design/8.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h1 class=" padding:40px; float:center;">Learnincreation <span style="color:orange;"> Products $ Services </span></h1>      
+               </div>
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/9.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">Web</span> Development </h2>
+                  <p style="font-size:20px; padding:40px; float:center;">We develop both Static and Dynamic website with a latest technology to provide best user interactive webportal to your customer to enchance your business reach.
+                   In Learnincreation Business we always focused on building an pathway to make your business fly in Online domain.
+                   <br>
+                   <br><span style="color:orange; font-size:28px;" > We not only designed Webportal for business but also helps our customer to know every details about how to grow in Online Market. We consult our audiences and helps them to go with best for their business.</span> </p>
+                  
+                  <h2>  <span style="color:orange;">Why every Business need Website </span>  and How to Start ? </h2>
+
+<p style="font-size:20px; padding:40px; float:center;"> A website is a tool for your business which kills the geographical barrier and expand your business awareness from local to global with just one click. Your business cant move , but your website can open your Business Online Window 24x7 from anywhere at anytime.
+<br><br> A Website provide a information about your business to your potential customer, help them to understand your service portfolio , product gallary, client details and most important encouraging your visitor, to visit your store
+or to order your service online or to be in contact for future updates. <br><br>
+<span style="color:orange; font-size:28px;">"Website can be as simple as company portfolio to as complex as Ecommerce portal. 
+Website Developed based on What kind of Business you do, Website is a Business Tool and Your Business has its own Need !! " </span> <p>     
+               </div>
+              <hr>
+         {% if user.is_authenticated %}
+              <small class="m-1 p-2"> Download your Tool  <a href="{% static 'landing/guides/how_website_helps_business _ Learnincreation.pdf' %}" download> <span style="text-decoration:none;"> Guide</span> </a> </small>
+              <hr>
+              {% else %}
+        <small class="m-1 p-2"> <a href= "{% url 'login' %}" > How Website </a> Helps  </small>
+
+              {% endif %}
+               
+        </div>
+    </div>
+   
+   <!-- Website 0 WebDevlopment - Global Business Reach section  end -->  
+   
+   
+   
+   
+   
+   <!--  Start PLus + Product  Section -->
+   
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/design/2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+      <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">Start+</span> Company Portfolio </h2>
+                  <p style="font-size:20px; padding:40px; float:center;"> A Product from LearnInCreation for new StartUp, small business to <strong>"Go Online with their Business"</strong> with Full Year maintenance support and Pakage. 
+                   <span style="color:orange; font-size:24px;"> <br><br> <i> We help businesses in building their Social Media Representation by creating marketing content for their Social Media for better customer interaction.</i></span>  </p> 
+                  <p style="font-size:20px; padding:40px; float:center;"> As website is a tool to enhance the reach of your client and to get new customer, also website have a primary objective to build trust between you and your client which can be done via transfer of right information about your business to them, also website is help to build your reputation of your company and shows you are truly transparent, straight and professional with your business and services,
+                   which makes a website very powerfool and essential tool to have. That's why almost every company, organization and shop have their own website.  </p>  
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'contact' %}"> <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;"> Know More </button> </a> </p>
+               </div>
+              <hr>
+       				  {% if user.is_authenticated %}
+              			<small class="m-1 p-2"> Download  <a href="{% static 'landing/guides/startplus_product_guide.pdf' %}" download> 
+                        <span style="text-decoration:none;"> StartPlus+ Product Guide</span> </a> </small>
+              			<hr>
+              		  {% else %}
+        			<small class="m-1 p-2"> <a href= "{% url 'login' %}" > Want to Download </a> Product Brochure </small>
+
+              		  {% endif %}
+        </div>
+    </div>
+   
+   <!--  Start PLus + Product Section End -->
+   
+   <!--  BeDigital Product  Section -->
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/20.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+  <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">BeDigital</span> - For Schools </h2>
+                  <p style="font-size:20px; padding:40px; float:center;"> BeDigital is A program by LearnInCreation to transform your School/ Institute / Coaching into an Online Learing Portal to prepare the better learning envoiurment for your school ecosystem where  <span style="color:orange;"> <b> " Teacher and Student get engaged and intract in a more connective method. " </b></span> 
+                  <br><br>We Develop BeDigital For Schools to turn their exsisting website into an Online Learning Portal to teach their student online in a better Learning envoiurment.  </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'contact' %}">  <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;">Know More </button> </a> </p>
+               </div>
+              <hr>
+        </div>
+    </div>   
+    
+   <!--  BeDigital Product Section End --> 
+ 
+
+   <!--  Digital-X Product  Section -->
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/24.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+  <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">Digital-X</span> - Website For Every Business </h2>
+                  <p style="font-size:20px; padding:40px; float:center;">  Digital- X is a program by Learnincreation were we tried to digitalize your business. Digital -X is a compelete Dynamic Website package including Hosting service and Domain registration for small company , shops , business , organisation , NGO , startup and for every kind of Business. </p>
+                    <p style="font-size:20px; padding:40px; float:center;">Digital-X is for business owner to start their Online Business Website (Dynamic). We designed Digital-x in a Python , Django Web Developemnt technology <strong>(Website like Instagram , DropBox , Newyork Times etc. are build in Latest technology - Django and now You with Digital -X ),</strong> Under Digital-X Program we tries to make your business digitalize with Business Website.
+   <span style="color:orange; font-size: 28px;"> <br><br> <i> "Website For Every Business" </i></span>  </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"> <a href="{% url 'contact' %}"> <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;"> Know More </button> </a> </p>
+               </div>
+              <hr>
+         			  {% if user.is_authenticated %}
+              			<small class="m-1 p-2"> Download  <a href="{% static 'landing/guides/digital-x-product-guide.pdf' %}" download> 
+                        <span style="text-decoration:none;"> Digital-X Product Brochure</span> </a> </small>
+              			<hr>
+              		  {% else %}
+        			<small class="m-1 p-2"> <a href= "{% url 'login' %}" > Want to Download </a> Product Brochure </small>
+
+              		  {% endif %}
+        </div>
+    </div>   
+    
+   <!-- Digital-X Product Section End --> 
+ 
+      
+   
+   <!--  Learnincreation Geeks Portal Section -->
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/8.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+  <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">Learnincreation Geeks </span> - Education For Everyone  </h2>
+                  <p style="font-size:20px; padding:40px; float:center;"> LearnInCreation Geeks is an Online Portal for Studetns to learn Website Desiging , Computer Science and Programming with a new interactive learning pathway with easy learning and study resources.
+                    <br><br> <span style="color:orange; font-size:28px; text-transform:uppercase;"> <i>Explore our Online Learning Portal and Enroll your choice course and start learning today !! </i></span> 
+               <h4>Padega India Tabhi to Badega India</h4>
+               </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"><a href="{% url 'geeks-home' %}">  <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;"> Learn Computer Science </button> </a> </p>
+               </div>
+              <hr>
+  	 				  {% if user.is_authenticated %}
+              			<small class="m-1 p-2"> Download  <a href="{% static 'landing/guides/Pathway-Guide-Learnincreation.pdf' %}" download> 
+                        <span style="text-decoration:none;">Learnincreation Geeks Pathway Guide</span> </a> </small>
+              			<hr>
+              		  {% else %}
+        			<small class="m-1 p-2"> <a href= "{% url 'login' %}" >  Looking for Learning Pathway of </a> Learnincreation Geeks </small>
+
+              		  {% endif %}
+        </div>
+        </div>
+    </div>   
+   <!--  LeafNotion Portal Section End --> 
+   
+   
+      <!--  LeafNotion Geeks Portal Section --
+
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/img/19.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   < -------- text-div-------------
+   
+  <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:100px;;" >   
+               <div class= "col-sm-10 md-10 lg-10" style=" margin-top:120px; padding:auto;">
+                  <h2> <span style="color:orange;">LeafNotion </span> - The Social Media </h2>
+                  <p style="font-size:20px; padding:40px; float:center;"> We always focused to help our customer in thier business. That's our only business to help you with your required product. That's why we build  Valued for Money Products. 
+                        <span style="color:red;"> <i>We are not Only Option, We are just Right Option.</i></span>  </p>      
+               <p style="margin-top:50px; margin-bottom:50px;"> <button type="button" class="btn btn-primary shadow p-2" style="margin:auto;">Know More </button> </p>
+               </div>
+              <hr>
+        </div>
+    </div>   
+   <--------  LeafNotion Portal Section End --> 
+   
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+{% endblock content %}

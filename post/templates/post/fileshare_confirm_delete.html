@@ -1,0 +1,109 @@
+{% extends 'landing/main.html'%}
+
+{% block title %}
+
+Delete Shared File . Learnincreation Geeks
+
+{% endblock title %}
+
+{% block meta %}
+<meta name="google-adsense-account" content="ca-pub-9133208017441567">
+{% endblock meta %}
+
+
+
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"> 
+        <a class="nav-link mt-3 " href="{% url 'home' %}">Home</a>
+
+         {% if user.is_authenticated %}
+      
+          
+
+           <a class="nav-link mt-3" href="{% url 'geeks-home' %}"><b>For Students</b></a>
+    
+      <a class="nav-link mt-3" href="{% url 'file-list' %}"><b>Note's Files </b></a>
+      		
+      <a class="nav-link mt-3" href="{% url 'post-list' %}"><b> Note's</b></a>
+
+          <a class="nav-link mt-3" href="{% url 'setting' %}">Setting</a>
+
+        {% else %}
+        <a class="nav-link text-primary mt-3 " href="{% url 'login' %}"><button class="btn btn-primary p-1" style="font-size: 15px;"> Sign in </button></a>
+        {% endif %}
+
+       <span class="navbar-text  mt-3 p-2">
+       Welcome To Learnincreation Geeks
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+{% endblock navbar %}
+
+{% block content %}
+
+
+<main id="main" class = 'm-5 p-5'>
+
+  
+
+        <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials p-2" >
+      <div class="container">
+        <div class="row">
+
+      <h3> Does You Post Something Inappropiate ! </h3>
+	<h4> Wanna Delete File ? </h4>
+<hr>
+          <div class="col-lg-12 m-2">
+            <div class="testimonial-item">
+            
+              <h3>Delete {{object.subject}}</h3>
+
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                {{object.about}}
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <p class = 'small'>Author - {{object.author}} | Course - {{post.course}} | Semester - {{object.semester}} | Published on  {{object.published | date}}  </p>
+            <p> 
+             	<p><form method="post">
+					{% csrf_token %}
+				    <p class="card-text"><b>Are you sure you want to delete ?</b></p>
+				    <button class="btn btn-danger m-1" type="submit" value="Confirm" > Yes, Delete </button>
+				    
+				
+
+			
+				</form><p>
+             	<p><a href="{% url 'file-list' %}" class="m-1"><button class="btn btn-primary" > Cancel </button></a></p>
+             </p>	
+            </div>
+          </div>
+
+
+     
+
+
+          
+      </div>
+
+    </section><!-- End Testimonials Section -->
+
+</main>
+
+
+
+{% endblock content %}
+

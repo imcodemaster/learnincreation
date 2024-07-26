@@ -1,0 +1,10 @@
+{% block content %}
+  {% for friend in mates %}
+  	<h5>
+  		{{friend.userprofile.username}}
+  	</h5>
+
+
+    {% endfor %}
+
+{% endblock %}

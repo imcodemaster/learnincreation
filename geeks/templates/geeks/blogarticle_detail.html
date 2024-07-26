@@ -1,0 +1,251 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block title %}
+      {{blogarticle.title }} |  Learnincreation Business
+ {% endblock title %}
+
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+     <meta name="description" content= " {{blogarticle.meta}}">
+  <meta name="keywords" content="'how to' 'what is' , {{blogarticle.title}} , Learnincreation E-book, Digital Marketing course ,  Learnincreation for Business , Library , e books library , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation ">
+
+{% endblock meta %}
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+ 
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+       
+       <a class="nav-link " href="{% url 'geeks-blog'%}" > <button class="btn btn-primary p-1"> Digital Marketing </button></a>
+       {% if user.is_superuser %}
+        <a class="nav-link " href = '{% url "blog-create"  %}' > <button class="btn btn-primary p-1">  Create Blog </button> </a> 
+        {% endif %}
+       
+       <span class="navbar-text">
+       Build Your Business Profile
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container mt-5">
+        <div class="row ">
+          <h1 class="p-3 mt-5">Today's Lesson -  <span style="color:orange; font-weight: bold;">   {{blogarticle.title}}</span> </h1>
+          <div class="col-md-8 p-3">
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+                <h5>Related with - <b class="text-primary">{{ blogarticle.tags }}</b></h5>
+                <small class="text-muted"> Posted on {{blogarticle.published_on}}</small>
+                <br>
+                
+                  <hr>
+                  {% if user.is_superuser %}
+              <a href="{% url 'blog-update' blogarticle.slug %}"> <button class = "btn btn-dark text-white p-1 m-2">  Update </button> </a>
+                  <a href="{% url 'blog-delete' blogarticle.slug %}"> <button class = "btn btn-danger text-white p-1 m-2">  Delete </button> </a>
+                  <hr>
+                {% endif %}
+                <img src="{{ blogarticle.snap.url }}"   width='300' height="300" />
+                <h3 class="card-text text-dark mt-2 ">{{ blogarticle.title }} </h3>
+                <hr>
+                <h7> <small class="text-muted">Level - {{blogarticle.standard}}</small> <hr> Course - <b class="text-primary">{{blogarticle.course}}</b></h7>
+                <hr>
+         <p class="card-text text-dark ">
+         {{blogarticle.body}} 
+         
+         <hr>
+         <div class="card text-white bg-dark mb-3" style="max-width: inherit;">
+  <div class="card-header"><img src="{% static 'landing/images/question.png'%}" width="20" height="20"> <b>Do you Know ? </b></div>
+  <div class="card-body">
+    <h5 class="card-title">Key Point</h5>
+    <p class="card-text">"{{blogarticle.keynote}}" .</p>
+  </div>
+</div>
+         
+         <hr>
+
+              {% if blogarticle.body_add_1 %}
+                  <div> 
+                    <h3>{{blogarticle.heading_add_1}}</h3>
+                       <p class="card-text text-dark ">
+                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
+                     <hr>
+                      {{blogarticle.body_add_1}}
+                    </p>
+                  </div>
+                 <hr>
+                 
+                 {% endif %}
+
+              {% if blogarticle.body_add_2 %}
+                  <div> 
+                    <h3>{{blogarticle.heading_add_2}}</h3>
+                       <p class="card-text text-dark ">
+                    
+                     <hr>
+                      {{blogarticle.body_add_2}}
+                    </p>
+                  </div>
+                 <hr>
+                 
+                 {% endif %}
+
+            {% if blogarticle.body_add_3 %}
+                  <div> 
+                    <h3>{{blogarticle.heading_add_3}}</h3>
+                       <p class="card-text text-dark ">
+                       
+                     <hr>
+                      {{blogarticle.body_add_3}}
+                    </p>
+                  </div>
+                 <hr>
+                 
+                 {% endif %}
+
+            {% if blogarticle.body_add_4 %}
+                  <div> 
+                    <h3>{{blogarticle.heading_add_4}}</h3>
+                       <p class="card-text text-dark ">
+                      
+                     <hr>
+                      {{blogarticle.body_add_4}}
+                    </p>
+                  </div>
+                 <hr>
+                 
+                 {% endif %}
+
+              {% if blogarticle.body_add_5 %}
+                  <div> 
+                    <h3>{{blogarticle.heading_add_5}}</h3>
+                       <p class="card-text text-dark ">
+                      
+                     <hr>
+                      {{blogarticle.body_add_5}}
+                    </p>
+                  </div>
+                 <hr>
+                 
+                 {% endif %}
+
+              {% if blogarticle.body_add_6 %}
+                  <div> 
+                    <h3>{{blogarticle.heading_add_6}}</h3>
+                       <p class="card-text text-dark ">
+                        
+                     <hr>
+                      {{blogarticle.body_add_6}}
+                    </p>
+                  </div>
+                 <hr>
+                 
+                 {% endif %}
+
+
+          {% if blogarticle.body_add_7 %}
+          <h3>{{blogarticle.heading_add_7}}</h3>
+          <p class="card-text text-dark ">
+            {{blogarticle.body_add_7}}
+          </p>
+          <hr>
+      {% endif %}
+
+      {% if blogarticle.videofile %}
+         <video width="380" height="300"  autoplay muted>
+          <source src="{{ blogarticle.videofile.url }}" type="video/mp4">
+          <source src="{{ blogarticle.videofile.url }}" type="video/ogg">
+        Your browser does not support the video tag.
+        </video>
+       {% endif %}
+
+         <br>
+         Is this helpful to you ? <a href="{% url 'contact' %}">Send Feedback</a><br>
+        
+          
+
+              </div>
+            </div>
+            <hr>
+           </div>
+
+           <div class="col-md-4 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Digitalize your Business  </h2> <br>
+                <p class="card-text text-white"> Learn Why every business have a Website or Online Presence of their Business Profile and How Business Profile in Digital Media helps your business to grow and reached out to more potential customer for your service.
+                 <hr>
+                   Want to Build your Buiness Website <a class="text-white" href="{% url 'contact' %}">connect with us </a>
+                  </p> <hr>
+                
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

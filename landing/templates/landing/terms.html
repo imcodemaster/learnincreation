@@ -1,0 +1,176 @@
+{% extends 'landing/main.html' %}
+{% load static %}
+
+{% block title %}
+  Terms of Services | Learnincreation 
+{% endblock title %}
+
+<!-- meta tags for seo -- >
+{% block meta %}
+
+    <meta name="description" content= " We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our terms of service.">
+  <meta name="keywords" content="Learnincreation Subscribe, Learnincreation Newsletter , e books , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+
+<!-- navbar section -->
+{% block navbar %}
+  
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link  "  href="{% url 'home' %}">Home</a>
+        <a class="nav-link " href="{% url 'about' %}">About</a>
+        <a class="nav-link" href="{% url 'product' %}">Product</a>
+        <a class="nav-link "  href="{% url 'think-list' %}">Announcement </a>
+        <a class="nav-link" href="{% url 'contact' %}">Contact </a>
+        {% if user.is_authenticated %}
+           <a class="nav-link" href="{% url 'setting' %}">Setting</a>
+        {% else %}
+        <a class="nav-link text-primary " href="{% url 'login' %}"> Sign in</a>
+        {% endif %}
+        
+       
+        <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+      </div>    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+<!-- nav bar section end -->
+
+{% block content %}
+
+<div class="container-fluid " style = "margin-top:120px; margin-bottom: 70px;">
+ 
+ <!-- aleart on site -- attentive or attraction on CTA  --> 
+    <div class="container-fluid" style = "margin-top:100px; padding-left:50px;">
+      <h7> We work hard to keep Learnincreation community safe, secure and respectable for everyone, treat everyone equally respected and reads our  <a href="{% url 'community' %}"> community guidelines here.</a>  </h7>
+    </div> 
+
+  <hr>
+  
+  <!-- attraction alreat section - end -->
+   
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/terms.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- text-div--> 
+   
+    <div class="container" style="margin:auto; padding:auto;">    
+        <div class="row" style="margin-bottom:10px;;" >   
+                        <div class="col-12 m-2 p-2 m-2 p-2 ">
+                            <h2 class="section-title m-2 p-2">Product's Terms and condition grants to you after purchasing a licenses - </h2>
+    <hr>
+                            <h3 class="m-2 p-2">CERTIFICATE OF AUTHENTICATION <span class="btn btn-warning text-white"> StatPlus+ & Digital-X </span> </h3>
+                            <p>
+                                Learnincreation Start Plus + (Customizable Company Portfolio Website) is licensed not sold to you by Learnincreation, for use only under the following terms. Learnincreation reserved any right not expressly granted to you. You own the hosting on which the website is running /hosting with the content you have on website (including your provided content on website relevance to your business.) But Learnincreation retain ownership of all the copies of website itself. The website is protected by copyright law and any kind of manipulation with product is under criminal offence with a penalty charges. You will receive (normally 1 website) that include Learnincreation Start Plus + (Customizable Company Portfolio website) product code – CWA 001, with proper functioning and documentations.
+                            </p>
+<hr>
+                            <h3 class="m-2 p-2">This license allowed you to –</h3>
+                            <p class="m-2 p-2">
+                                <ol>
+                                    <li>Change the portfolio (product) demo data to your content relevance to your business, company, organization or need. To build a presence of your company Online to reach more target audience for your business.</li>
+                                    
+                                    <li>Ask a Learnincreation team to change the data (provided by you) with new desirable one (Include data in text or image format.)</li>
+
+                                    <li> Extended the size of your product licensed, by purchasing additional licensed. </li>
+                                    
+                                    <li>Transferring the product and all right under the licensed to another party together with a copy of the licensed and all written material accompanying the product. Provided that the other party read and accepts the terms and condition of this product licensed.</li>
+                                    
+                                    <li>You lose the right to use the product and all other right under this licensed when transferring the product.</li>
+                                </ol>
+                            </p>
+<hr>
+                          <h3 class="m-2 p-2"> Restriction - </h3>
+                                <p class="m-2 p-2">You may not distribute the copies of the product to another party or electronically transfer to anyone. The product is copyrighted so you will not intimate, manipulated or create copies of this product.
+                                <br><br>
+                                Any kind of additional features updates are done by Learnincreation as per our product policy. You don’t have a right to claim for changes in designed or any other product sections or structures. Some little manipulation can be done in product (Customizable Company Portfolio) as per discussion only if it has a relevancy with your business content you provided.
+                                <br>
+                                You may not modify, adjust, translate, rent, lease, resell, distribute or create derivative work based upon the product or any other part thereof. However, we want to encourage the companies in providing value added service to Learnincreation customer. Please contact to Learnincreation product design and development team directly if you are interested in the above mentioned activities. </p>
+
+<hr>
+
+                        <h3 class="m-2 p-2">Termination –</h3>
+                        <p class="m-2 p-2">
+                            This licensed is effective until terminated. It will terminate immediately without a notice , if you fail to commit with any of its provision. Upon termination, you must destroy the product code submitted to your hosting computer (if you host from third party. Or in other words you’re hosting service providing company) and all copies thereof.</p>
+
+<hr>
+                        <h3 class="m-2 p-2">Refund Policy</h3>
+
+                            <p class="m-2 p-2">Learnincreation goes out of its way to makes sure it’s licenses are well informed about the Customizable Company Portfolio features prior to activation the licenses. During the pre –licensed period, we provided the free access to our product and technical staff. (Product preview contain the same features as licensed copies but the content you see on website is for demonstration and get changed by the content you provided relevance with your business details). This allows potential licenses (you) to use, overview and understand the (product) Customizable Company Portfolio prior to purchase a licenses.
+                            <br>
+                            <hr>
+                            *** This commitments are dependent if you purchase product in any kind of offer scheme.
+                            <hr>
+                            After purchasing a product licensed, you can cancel licensed at any time (in between licensed active durations), but you won’t get refunds the licenses fee along with product maintenance charges.
+                            <br>
+                            <hr>
+                            <b>***If paid already.</b>
+                            <hr>
+                            Refund of product is only concerned if you cancel your licenses before hosting a product on host service. <hr> (*** only if you host on third party hosting provide company)
+
+                          <b>  ** With this in mind, please note – </b>
+                          <p>  Learnincreation has no refund policy on this product (Customizable Company Portfolio), once the product is licensed to you or get host on server. <hr> Product code – CWA -001 <hr> Product name – Customizable Company Portfolio (Website)
+                            </p>
+<hr>
+                            <h2 class="m-2 p-2">Requirments - </h2>
+                            <p class="m-2 p-2">
+                               As this product (Customizable Company Portfolio) is a website for small business owner or companies, organization which helps you to make an Online presence of your company or organization to reach to your customer globally and with more effective way and efficiently. But as it’s a website, so you need to must have a domain name (with your organization name) and hosting service (to host) to get access from anywhere by anyone globally. These two services are charged additional with the product licensed fees.
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <!-- terms div end -->
+        </div>
+             
+        </div>
+    </div>
+  
+   <!-- Header section end -->
+   
+ 
+    <div class="container" style="margin:auto; padding:auto;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/terms-2.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>  
+  
+   
+ 
+
+
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}

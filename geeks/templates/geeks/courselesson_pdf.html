@@ -1,0 +1,198 @@
+{% extends 'geeks/base.html' %}
+{% load static %}
+
+
+ {% block title %}
+  "Geeks Lesson Pdf for {{request.user.first_name}} {{request.user.last_name}}"| Learnincreation Geeks
+ {% endblock title %}
+
+
+
+{% block content %}
+
+
+
+   <div class="container mt-5 pt-4" style="margin:auto; padding:auto;">
+           
+               <div class="mt-5 ">
+                  <h1 style="font-size: 20px;">Welcome to Learnincreation Geeks </h1>
+                  <div class="row mt-5 pt-5" style="font-size: 14px">
+                Lesson pdf, requested by - <b>"{{request.user.username}} {{request.user.last_name}} "</b> on <b>{{today}}</b> generated successfully with booklet-no- <i style="text-transform: uppercase;">"Lesson pdf version-{{request.user.pk}}-ELG"</i> for education or learning purpose only, do not try to sale, duplicate or immitate the content of this pdf booklet.
+                <strong> Copyright : © 2022 LearnInCreation , All Right Reserved.  </strong>   
+               </div>      
+               </div>
+        
+    </div>
+ {% for topic in lesson %}
+<div class="container mt-5">
+        <div class="row " style="font-weight: bolder;">
+          <h2 class="p-3 mt-5"> Course Lesson - <span style="color:orange; font-weight: bold;"> {{topic.title}} </span> </h2>
+             <div class="col-md-3 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 " >
+               
+              
+              <h5 class="text-white">{{topic.course}}</h5>
+              <hr class="text-white">
+                <p class="text-white">{{topic.course.description}}</p>
+               
+             
+            </div>
+           </div>
+
+          <div class="col-md-6 p-3">
+            <div class="card card-signin my-5 shadow p-4">
+              <div class="card-body p-2 m-1">
+               <h6>From Course <b class="text-primary">{{ topic.course }}</b></h6>
+                  <hr>
+                   <img src= "{% static 'landing/img/21.png' %}"   class="shadow" width='220' height="220" style="padding: 10px;" /> 
+ 
+                <hr>
+                
+                
+                <h7> <small class="text-muted">Level - {{topic.standard}} standard</small></h7><br>
+                <small class="text-muted"> Posted on {{topic.published_on}}</small>
+                <hr>
+       <div>         
+        <p class="card-text text-dark ">
+         {{topic.body}} 
+       </p>
+         <hr>
+         
+       
+          <div> 
+             <p class="card-text text-dark ">
+          {% if topic.snap_add_1 %}      
+          <div>
+                  <img src="{{ topic.snap_add_1.url }}"  width='300' height="300" style="padding: 5px;" />
+              </div>
+          <hr>
+          {% endif %}
+             
+	         {% if topic.body_add_1 %}
+            <h3>{{topic.heading_add_1}}</h3>
+              {{topic.body_add_1}}
+          <hr>
+         {% endif %}
+            </p>
+          </div>
+         
+         
+         
+         <p class="card-text text-dark ">
+         {% if topic.snap_add_2 %}   
+         <img src="{{ topic.snap_add_2.url }}" width='300' height="300" style="padding: 5px;" />
+         {% endif %}
+         {% if topic.body_add_2 %}
+              <h3>{{topic.heading_add_2}}</h3>       
+            <hr>
+          {{topic.body_add_2}} <hr>
+          {% endif %}
+         </p>
+          
+         
+            <p class="card-text text-dark ">
+            {% if topic.snap_add_3 %}
+            <img src="{{ topic.snap_add_3.url }}"  width='300' height="300" style="padding: 5px;" /> 
+			{% endif %}
+         {% if topic.body_add_3 %}
+         <h3>{{topic.heading_add_3}}</h3>
+                     <hr>
+          {{topic.body_add_3}} <hr>
+          {% endif %}
+        </p>
+          
+
+        
+        <p class="card-text text-dark ">
+        {% if topic.snap_add_4 %}    
+        <img src="{{ topic.snap_add_4.url }}"  width='300' height="300" style="padding: 5px;"/>
+        {% endif %} 
+        {% if topic.body_add_4 %}
+         <h3>{{topic.heading_add_4}}</h3>
+ 
+          <hr>
+          {{topic.body_add_4}}
+        <hr>
+        {% endif %}
+         
+        </p>
+          
+ 
+		<p class="card-text text-dark ">
+        {% if topic.snap_add_5 %} 
+        <img src="{{ topic.snap_add_5.url }}"  width='300' height="300" style="padding: 5px;" />
+        {% endif %} 
+        {% if topic.body_add_5 %}
+         <h3>{{topic.heading_add_5}}</h3>
+         
+          <hr>
+          {{topic.body_add_5}} <hr>
+        {% endif %}
+        </p>
+        
+
+         
+      
+         <p class="card-text text-dark ">
+         {% if topic.snap_add_6 %}
+        	 <img src="{{ topic.snap_add_6.url }}"  width='300' height="300" style="padding: 5px;" />
+ 		{% endif %}
+         {% if topic.body_add_6 %}
+         <h3>{{topic.heading_add_6}}</h3>
+                  <hr>
+          {{topic.body_add_6}}
+			<hr>
+          {% endif %}
+          </p>
+         
+
+		{% if topic.body_add_7 %}
+          <h3>{{topic.heading_add_7}}</h3>
+          <p class="card-text text-dark ">
+            {{topic.body_add_7}}
+          </p>
+          <hr>
+      {% endif %}
+
+
+         <div class="card text-white bg-dark active mb-3" style="max-width: inherit;">
+            <div class="card-header">
+                <!--<img src="{% static 'landing/images/question.png'%}" width="20" height="20"> <b>Important </b> -->
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Key Point : </h5>
+                <p class="card-text">"{{topic.keynote}}" .</p>
+              </div>
+            </div>
+                     
+         <hr>
+    
+  </div>
+         
+     
+              </div>
+
+            </div>
+            <hr>
+             
+           </div>
+
+
+
+
+           <div class="col-md-3 p-3 ">
+            <div class="card card-signin m-3 shadow p-4 bg-primary">
+              <div class="card-body  text-white">
+                <h2> Explore More on </h2> <br>
+                Learn more with Learnincreation
+
+              </div>
+            </div>
+           </div>
+        </div>
+    </div>
+====================================================================================
+{% endfor %}
+
+{% endblock content %}
+

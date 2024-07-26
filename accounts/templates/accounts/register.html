@@ -1,0 +1,101 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+   Sign up | Learnincreation
+{% endblock title%}
+
+<!-- meta tags for seo -->
+{% block meta %}
+
+    <meta name="description" content= " Still dont have account on Learnincreation. Register yourself and unlock the door of possiblity.">
+  <meta name="keywords" content="Learnincreation, sign up, Learnincreation Newsletter , e books , free, business guide, online , business, how to , build , business profile ,  commmunity standards ">
+  <meta name="author" content="Learnincreation">
+
+{% endblock meta %}
+
+
+{% block navbar %}
+    
+  <nav class="navbar navbar-expand-lg navbar-white bg-white">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+
+      <a class="nav-link mt-3 " href="{% url 'home' %}" > Home </a>
+        <a class="nav-link mt-3 text-primary" href="{% url 'login'%}">Sign in</a>
+        
+       
+       <span class="navbar-text mt-3">
+       Welcome To Learnincreation
+    </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% endblock navbar %}
+
+
+
+
+{% block content %}
+
+{% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+{% endfor %}
+     
+   <!-- Header section -->
+   
+   <!-- image-div-->
+   
+   <div class="container" style="margin:auto; padding:auto; margin-top: 80px;">
+        <div class="row" >   
+               <div>
+                  <img  src="{% static 'landing/images/account-design.png' %}" style="width:inherit; height:auto;" alt="learnincreation-banner-image">      
+               </div>
+        </div>
+    </div>
+    
+   <!-- form div --> 
+
+    <div class="container " >    
+        <div class="row" style="margin-bottom:100px;  line-height: 25px;" >   
+                   <h2> <strong> Welcome <span style="color:orange;"> to Learnincreation</span> </strong></h2>
+                   <div class="col-sm-12 md-10 lg-10 " style="margin: auto; padding: 20px;">
+                    
+                       <form method="POST">
+                         {% csrf_token %}
+                         {{register_form | crispy }}
+
+                         <button class="btn btn-primary btn-lg btn-block mt-3" type="submit"> Sign Up </button>
+                       </form>
+                    </div>
+                   <p class="text-center"> If you Already have an account, <a href="{% url 'login' %}"> Sign In</a> instead. </p>
+                   <p class="text-center" style="font-size: 12px;"> By continuing, you agree to Learnincreation's <a href="{% url 'terms'  %}">Terms of Uses</a> and <a href="{% url 'policy' %}"> Policies.</a></p>
+                 </div> 
+
+               </div>
+
+
+  
+   <!-- Header section end -->
+
+     
+</div> <!-- main body container end --> 
+
+
+
+
+{% endblock content %}
